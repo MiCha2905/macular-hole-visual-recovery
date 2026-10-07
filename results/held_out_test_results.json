@@ -1,0 +1,86 @@
+[
+  {
+    "Model Configuration": "E1: Baseline VA only",
+    "Test AUROC (%)": 80.6,
+    "Test F1 (%)": 75.0,
+    "Test Accuracy (%)": 76.5,
+    "Test Brier Loss": 0.1722,
+    "Test MAE (letters)": 9.23,
+    "Test RMSE (letters)": 12.4,
+    "Test R\u00b2 Score": 0.615,
+    "Conformal q_hat": 15.99,
+    "Test 90% PICP (%)": "14/17 (82.4%)"
+  },
+  {
+    "Model Configuration": "E2: Clinical Only (7 features)",
+    "Test AUROC (%)": 79.2,
+    "Test F1 (%)": 75.0,
+    "Test Accuracy (%)": 76.5,
+    "Test Brier Loss": 0.1659,
+    "Test MAE (letters)": 10.16,
+    "Test RMSE (letters)": 13.51,
+    "Test R\u00b2 Score": 0.542,
+    "Conformal q_hat": 14.28,
+    "Test 90% PICP (%)": "12/17 (70.6%)"
+  },
+  {
+    "Model Configuration": "E3: Vision Embeddings Only",
+    "Test AUROC (%)": 34.7,
+    "Test F1 (%)": 16.7,
+    "Test Accuracy (%)": 41.2,
+    "Test Brier Loss": 0.3031,
+    "Test MAE (letters)": 16.64,
+    "Test RMSE (letters)": 21.86,
+    "Test R\u00b2 Score": -0.198,
+    "Conformal q_hat": 22.36,
+    "Test 90% PICP (%)": "13/17 (76.5%)"
+  },
+  {
+    "Model Configuration": "E4: Morphometry Only",
+    "Test AUROC (%)": 54.2,
+    "Test F1 (%)": 52.6,
+    "Test Accuracy (%)": 47.1,
+    "Test Brier Loss": 0.2595,
+    "Test MAE (letters)": 15.07,
+    "Test RMSE (letters)": 20.39,
+    "Test R\u00b2 Score": -0.042,
+    "Conformal q_hat": 24.64,
+    "Test 90% PICP (%)": "13/17 (76.5%)"
+  },
+  {
+    "Model Configuration": "E5: Clinical + Morphometry",
+    "Test AUROC (%)": 79.2,
+    "Test F1 (%)": 75.0,
+    "Test Accuracy (%)": 76.5,
+    "Test Brier Loss": 0.1759,
+    "Test MAE (letters)": 10.35,
+    "Test RMSE (letters)": 13.62,
+    "Test R\u00b2 Score": 0.535,
+    "Conformal q_hat": 14.17,
+    "Test 90% PICP (%)": "12/17 (70.6%)"
+  },
+  {
+    "Model Configuration": "E6: Clinical + Vision Embeddings",
+    "Test AUROC (%)": 76.4,
+    "Test F1 (%)": 70.6,
+    "Test Accuracy (%)": 70.6,
+    "Test Brier Loss": 0.1799,
+    "Test MAE (letters)": 10.19,
+    "Test RMSE (letters)": 13.3,
+    "Test R\u00b2 Score": 0.557,
+    "Conformal q_hat": 14.76,
+    "Test 90% PICP (%)": "13/17 (76.5%)"
+  },
+  {
+    "Model Configuration": "E7: Full Multimodal Fusion",
+    "Test AUROC (%)": 75.0,
+    "Test F1 (%)": 70.6,
+    "Test Accuracy (%)": 70.6,
+    "Test Brier Loss": 0.1918,
+    "Test MAE (letters)": 10.41,
+    "Test RMSE (letters)": 13.41,
+    "Test R\u00b2 Score": 0.549,
+    "Conformal q_hat": 14.16,
+    "Test 90% PICP (%)": "12/17 (70.6%)"
+  }
+]

@@ -1,0 +1,338 @@
+{
+  "l1_sparsity_summary": [
+    {
+      "experiment": "E1: Baseline VA only",
+      "C_0.01_mean_auroc": 0.5,
+      "C_0.05_mean_auroc": 0.8237636363636364,
+      "C_0.1_mean_auroc": 0.8237636363636364,
+      "C_0.2_mean_auroc": 0.8237636363636364,
+      "C_0.5_mean_auroc": 0.8237636363636364,
+      "C_1.0_mean_auroc": 0.8237636363636364,
+      "C_2.0_mean_auroc": 0.8237636363636364,
+      "C_0.01_mean_nonzero": 0.0,
+      "C_0.05_mean_nonzero": 1.0,
+      "C_0.1_mean_nonzero": 1.0,
+      "C_0.2_mean_nonzero": 1.0,
+      "C_0.5_mean_nonzero": 1.0,
+      "C_1.0_mean_nonzero": 1.0,
+      "C_2.0_mean_nonzero": 1.0
+    },
+    {
+      "experiment": "E2: Clinical Only (7 features)",
+      "C_0.01_mean_auroc": 0.5,
+      "C_0.05_mean_auroc": 0.8237636363636364,
+      "C_0.1_mean_auroc": 0.8237636363636364,
+      "C_0.2_mean_auroc": 0.8184,
+      "C_0.5_mean_auroc": 0.8194363636363634,
+      "C_1.0_mean_auroc": 0.8091999999999999,
+      "C_2.0_mean_auroc": 0.8005818181818181,
+      "C_0.01_mean_nonzero": 0.0,
+      "C_0.05_mean_nonzero": 1.0,
+      "C_0.1_mean_nonzero": 1.0,
+      "C_0.2_mean_nonzero": 2.48,
+      "C_0.5_mean_nonzero": 4.32,
+      "C_1.0_mean_nonzero": 5.64,
+      "C_2.0_mean_nonzero": 6.48
+    },
+    {
+      "experiment": "E5: Clinical + Morphometry",
+      "C_0.01_mean_auroc": 0.5,
+      "C_0.05_mean_auroc": 0.8237636363636364,
+      "C_0.1_mean_auroc": 0.8237636363636364,
+      "C_0.2_mean_auroc": 0.8193818181818182,
+      "C_0.5_mean_auroc": 0.8209090909090909,
+      "C_1.0_mean_auroc": 0.8130181818181818,
+      "C_2.0_mean_auroc": 0.8015636363636364,
+      "C_0.01_mean_nonzero": 0.0,
+      "C_0.05_mean_nonzero": 1.0,
+      "C_0.1_mean_nonzero": 1.0,
+      "C_0.2_mean_nonzero": 4.32,
+      "C_0.5_mean_nonzero": 7.24,
+      "C_1.0_mean_nonzero": 9.24,
+      "C_2.0_mean_nonzero": 10.72
+    },
+    {
+      "experiment": "E6: Clinical + Vision (PCA-8)",
+      "C_0.01_mean_auroc": 0.5,
+      "C_0.05_mean_auroc": 0.8237636363636364,
+      "C_0.1_mean_auroc": 0.8237636363636364,
+      "C_0.2_mean_auroc": 0.8131272727272729,
+      "C_0.5_mean_auroc": 0.8107636363636364,
+      "C_1.0_mean_auroc": 0.8025090909090911,
+      "C_2.0_mean_auroc": 0.7917818181818181,
+      "C_0.01_mean_nonzero": 0.0,
+      "C_0.05_mean_nonzero": 1.0,
+      "C_0.1_mean_nonzero": 1.12,
+      "C_0.2_mean_nonzero": 4.52,
+      "C_0.5_mean_nonzero": 9.24,
+      "C_1.0_mean_nonzero": 12.2,
+      "C_2.0_mean_nonzero": 13.88
+    },
+    {
+      "experiment": "E7: Full Multimodal Fusion",
+      "C_0.01_mean_auroc": 0.5,
+      "C_0.05_mean_auroc": 0.8237636363636364,
+      "C_0.1_mean_auroc": 0.8237636363636364,
+      "C_0.2_mean_auroc": 0.8129454545454544,
+      "C_0.5_mean_auroc": 0.8323272727272727,
+      "C_1.0_mean_auroc": 0.8250181818181818,
+      "C_2.0_mean_auroc": 0.8105818181818182,
+      "C_0.01_mean_nonzero": 0.0,
+      "C_0.05_mean_nonzero": 1.0,
+      "C_0.1_mean_nonzero": 1.12,
+      "C_0.2_mean_nonzero": 6.32,
+      "C_0.5_mean_nonzero": 11.56,
+      "C_1.0_mean_nonzero": 15.44,
+      "C_2.0_mean_nonzero": 17.84
+    }
+  ],
+  "ordinal_benchmark_summary": [
+    {
+      "model": "Frank-Hall L1 Sparse (C=0.2)",
+      "tier": "E1: Baseline VA only",
+      "qwk_mean": 0.36842853199602177,
+      "qwk_sd": 0.15229271407433695,
+      "tau_mean": 0.42951991794277977,
+      "tau_sd": 0.1725357663566244,
+      "acc_mean": 56.74285714285715,
+      "adj_acc_mean": 92.50476190476189
+    },
+    {
+      "model": "Frank-Hall L1 Sparse (C=0.2)",
+      "tier": "E2: Clinical Only (7 features)",
+      "qwk_mean": 0.3621132807125966,
+      "qwk_sd": 0.16744598165827176,
+      "tau_mean": 0.41452618113934486,
+      "tau_sd": 0.1859563960800387,
+      "acc_mean": 55.38095238095237,
+      "adj_acc_mean": 92.88571428571427
+    },
+    {
+      "model": "Frank-Hall L1 Sparse (C=0.2)",
+      "tier": "E5: Clinical + Morphometry",
+      "qwk_mean": 0.3592493526902644,
+      "qwk_sd": 0.14644892543112858,
+      "tau_mean": 0.41938148379932555,
+      "tau_sd": 0.15246407349608307,
+      "acc_mean": 54.42857142857142,
+      "adj_acc_mean": 92.3142857142857
+    },
+    {
+      "model": "Frank-Hall L1 Sparse (C=0.2)",
+      "tier": "E6: Clinical + Vision (PCA-8)",
+      "qwk_mean": 0.38985126075534915,
+      "qwk_sd": 0.1501918178535022,
+      "tau_mean": 0.43719602497194876,
+      "tau_sd": 0.15702198946365742,
+      "acc_mean": 56.8952380952381,
+      "adj_acc_mean": 92.88571428571429
+    },
+    {
+      "model": "Frank-Hall L1 Sparse (C=0.2)",
+      "tier": "E7: Full Multimodal Fusion",
+      "qwk_mean": 0.3720909933099964,
+      "qwk_sd": 0.14740240061823545,
+      "tau_mean": 0.42842518370233684,
+      "tau_sd": 0.15142424262046264,
+      "acc_mean": 56.695238095238096,
+      "adj_acc_mean": 92.12380952380951
+    },
+    {
+      "model": "Frank-Hall L2 (C=0.5)",
+      "tier": "E1: Baseline VA only",
+      "qwk_mean": 0.46861296828097954,
+      "qwk_sd": 0.1586608054884655,
+      "tau_mean": 0.4803031006851024,
+      "tau_sd": 0.15661573519224026,
+      "acc_mean": 59.63809523809525,
+      "adj_acc_mean": 95.76190476190476
+    },
+    {
+      "model": "Frank-Hall L2 (C=0.5)",
+      "tier": "E2: Clinical Only (7 features)",
+      "qwk_mean": 0.38850569287089504,
+      "qwk_sd": 0.18645683926841242,
+      "tau_mean": 0.3947689276757809,
+      "tau_sd": 0.1897263544124144,
+      "acc_mean": 54.266666666666666,
+      "adj_acc_mean": 92.89523809523808
+    },
+    {
+      "model": "Frank-Hall L2 (C=0.5)",
+      "tier": "E5: Clinical + Morphometry",
+      "qwk_mean": 0.3740975530093503,
+      "qwk_sd": 0.1999723497009416,
+      "tau_mean": 0.3865078204618456,
+      "tau_sd": 0.19462527954446143,
+      "acc_mean": 56.990476190476194,
+      "adj_acc_mean": 91.74285714285715
+    },
+    {
+      "model": "Frank-Hall L2 (C=0.5)",
+      "tier": "E6: Clinical + Vision (PCA-8)",
+      "qwk_mean": 0.3598733276337718,
+      "qwk_sd": 0.15377549598182463,
+      "tau_mean": 0.37544612502267827,
+      "tau_sd": 0.15859844396953035,
+      "acc_mean": 55.79047619047619,
+      "adj_acc_mean": 92.4952380952381
+    },
+    {
+      "model": "Frank-Hall L2 (C=0.5)",
+      "tier": "E7: Full Multimodal Fusion",
+      "qwk_mean": 0.3104312890366986,
+      "qwk_sd": 0.211666870543247,
+      "tau_mean": 0.32933070162479344,
+      "tau_sd": 0.2038286722914752,
+      "acc_mean": 57.53333333333334,
+      "adj_acc_mean": 89.00952380952381
+    },
+    {
+      "model": "Proportional Odds Logistic (L2=1.0)",
+      "tier": "E1: Baseline VA only",
+      "qwk_mean": 0.0,
+      "qwk_sd": 0.0,
+      "tau_mean": 0.0,
+      "tau_sd": 0.0,
+      "acc_mean": 50.0,
+      "adj_acc_mean": 81.6952380952381
+    },
+    {
+      "model": "Proportional Odds Logistic (L2=1.0)",
+      "tier": "E2: Clinical Only (7 features)",
+      "qwk_mean": 0.06140549976423907,
+      "qwk_sd": 0.05885540314175711,
+      "tau_mean": 0.17131144602225945,
+      "tau_sd": 0.15681195180417978,
+      "acc_mean": 50.38095238095238,
+      "adj_acc_mean": 84.19999999999999
+    },
+    {
+      "model": "Proportional Odds Logistic (L2=1.0)",
+      "tier": "E5: Clinical + Morphometry",
+      "qwk_mean": 0.0663114494895087,
+      "qwk_sd": 0.06568418331189795,
+      "tau_mean": 0.15593182542928063,
+      "tau_sd": 0.15554870389752212,
+      "acc_mean": 50.37142857142857,
+      "adj_acc_mean": 84.58095238095238
+    },
+    {
+      "model": "Proportional Odds Logistic (L2=1.0)",
+      "tier": "E6: Clinical + Vision (PCA-8)",
+      "qwk_mean": 0.08525446704446285,
+      "qwk_sd": 0.09393757228782716,
+      "tau_mean": 0.19042683143737985,
+      "tau_sd": 0.18819285281376405,
+      "acc_mean": 50.37142857142857,
+      "adj_acc_mean": 85.16190476190476
+    },
+    {
+      "model": "Proportional Odds Logistic (L2=1.0)",
+      "tier": "E7: Full Multimodal Fusion",
+      "qwk_mean": 0.11830108234199621,
+      "qwk_sd": 0.10290245781685124,
+      "tau_mean": 0.237709778398415,
+      "tau_sd": 0.18994160879959496,
+      "acc_mean": 52.09523809523808,
+      "adj_acc_mean": 85.92380952380952
+    },
+    {
+      "model": "Ordinal Discretized GBDT Regressor",
+      "tier": "E1: Baseline VA only",
+      "qwk_mean": 0.4814090460304952,
+      "qwk_sd": 0.14664119992931027,
+      "tau_mean": 0.48949045089839777,
+      "tau_sd": 0.14658685121600273,
+      "acc_mean": 57.30476190476189,
+      "adj_acc_mean": 98.47619047619048
+    },
+    {
+      "model": "Ordinal Discretized GBDT Regressor",
+      "tier": "E2: Clinical Only (7 features)",
+      "qwk_mean": 0.456945798648405,
+      "qwk_sd": 0.181883785296672,
+      "tau_mean": 0.45677754938933446,
+      "tau_sd": 0.17825007799580445,
+      "acc_mean": 54.82857142857143,
+      "adj_acc_mean": 98.28571428571429
+    },
+    {
+      "model": "Ordinal Discretized GBDT Regressor",
+      "tier": "E5: Clinical + Morphometry",
+      "qwk_mean": 0.46631982219737217,
+      "qwk_sd": 0.17907066347961506,
+      "tau_mean": 0.47109804067978095,
+      "tau_sd": 0.1752229099959237,
+      "acc_mean": 55.961904761904755,
+      "adj_acc_mean": 98.27619047619048
+    },
+    {
+      "model": "Ordinal Discretized GBDT Regressor",
+      "tier": "E6: Clinical + Vision (PCA-8)",
+      "qwk_mean": 0.4602043913272362,
+      "qwk_sd": 0.17212738959045298,
+      "tau_mean": 0.4688083096149704,
+      "tau_sd": 0.18542540121865073,
+      "acc_mean": 56.75238095238095,
+      "adj_acc_mean": 98.0952380952381
+    },
+    {
+      "model": "Ordinal Discretized GBDT Regressor",
+      "tier": "E7: Full Multimodal Fusion",
+      "qwk_mean": 0.4418857695237661,
+      "qwk_sd": 0.16262003166287659,
+      "tau_mean": 0.45299237699992917,
+      "tau_sd": 0.16822176552815446,
+      "acc_mean": 56.54285714285714,
+      "adj_acc_mean": 97.70476190476191
+    }
+  ],
+  "held_out_test_summary": [
+    {
+      "tier": "E1: Baseline VA only",
+      "l2_test_auroc": 0.8055555555555556,
+      "l1_test_auroc": 0.8055555555555556,
+      "l1_nonzero_features": 1,
+      "ordinal_qwk": 0.5539358600583091,
+      "ordinal_acc": 0.6470588235294118,
+      "ordinal_adj_acc": 0.9411764705882353
+    },
+    {
+      "tier": "E2: Clinical Only (7 features)",
+      "l2_test_auroc": 0.8055555555555556,
+      "l1_test_auroc": 0.8194444444444445,
+      "l1_nonzero_features": 3,
+      "ordinal_qwk": 0.6843501326259948,
+      "ordinal_acc": 0.7647058823529411,
+      "ordinal_adj_acc": 0.9411764705882353
+    },
+    {
+      "tier": "E5: Clinical + Morphometry",
+      "l2_test_auroc": 0.8055555555555556,
+      "l1_test_auroc": 0.8194444444444445,
+      "l1_nonzero_features": 6,
+      "ordinal_qwk": 0.423728813559322,
+      "ordinal_acc": 0.6470588235294118,
+      "ordinal_adj_acc": 0.8823529411764706
+    },
+    {
+      "tier": "E6: Clinical + Vision (PCA-8)",
+      "l2_test_auroc": 0.7916666666666667,
+      "l1_test_auroc": 0.8055555555555556,
+      "l1_nonzero_features": 5,
+      "ordinal_qwk": 0.5039787798408488,
+      "ordinal_acc": 0.7058823529411765,
+      "ordinal_adj_acc": 0.8823529411764706
+    },
+    {
+      "tier": "E7: Full Multimodal Fusion",
+      "l2_test_auroc": 0.7777777777777779,
+      "l1_test_auroc": 0.7916666666666667,
+      "l1_nonzero_features": 7,
+      "ordinal_qwk": 0.423728813559322,
+      "ordinal_acc": 0.6470588235294118,
+      "ordinal_adj_acc": 0.8823529411764706
+    }
+  ]
+}

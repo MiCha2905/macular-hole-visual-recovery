@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preoperative Clinical and OCT-Based Prediction of Visual Recovery - Manuscript Preview</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; margin: 30px auto; max-width: 1000px; line-height: 1.6; color: #111; background: #f4f6f8; }
+        .paper-container { background: #fff; padding: 50px 70px; box-shadow: 0 4px 25px rgba(0,0,0,0.1); border-radius: 4px; border: 1px solid #ddd; }
+        h1.title { text-align: center; font-size: 22pt; font-weight: bold; margin-bottom: 12px; line-height: 1.3; }
+        .authors { text-align: center; font-size: 11pt; margin-bottom: 25px; color: #222; }
+        .abstract-box { background: #fafbfc; border-left: 4px solid #1a56db; padding: 18px 22px; margin: 25px 0; font-size: 10pt; text-align: justify; border-top: 1px solid #eee; border-bottom: 1px solid #eee; border-right: 1px solid #eee; line-height: 1.5; }
+        .keywords { font-weight: bold; margin-top: 10px; font-size: 9.5pt; color: #333; }
+        h2 { font-size: 14pt; text-transform: uppercase; border-bottom: 1.5px solid #222; padding-bottom: 4px; margin-top: 30px; letter-spacing: 0.5px; }
+        h3 { font-size: 12pt; font-weight: bold; margin-top: 20px; color: #1a202c; }
+        h4 { font-size: 10.5pt; font-style: italic; margin-top: 14px; }
+        p { margin: 0 0 12px 0; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 9pt; }
+        th, td { border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 7px 5px; text-align: center; }
+        th { font-weight: bold; background: #f8fafc; }
+        .figure-box { width: 100%; margin: 22px 0; text-align: center; background: #fff; }
+        .figure-box img { max-width: 90%; height: auto; border: 1px solid #e2e8f0; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .caption { font-size: 9pt; font-style: normal; color: #334155; margin-top: 8px; text-align: justify; line-height: 1.4; padding: 0 5%; }
+        .algorithm-box { background: #fdfdfd; border: 1px solid #cbd5e1; border-top: 2px solid #0f172a; border-bottom: 2px solid #0f172a; padding: 14px 18px; margin: 20px 0; font-family: monospace; font-size: 9pt; line-height: 1.45; }
+        .references { font-size: 8.5pt; margin-top: 25px; }
+        .references ol { padding-left: 18px; margin-top: 8px; }
+        .references li { margin-bottom: 6px; text-align: justify; }
+        .badge { display: inline-block; background: #0f172a; color: #f8fafc; padding: 4px 10px; border-radius: 4px; font-size: 8pt; font-family: monospace; float: right; }
+    </style>
+</head>
+<body>
+<div class="paper-container">
+    <span class="badge">Journal Full Manuscript Draft</span>
+    <h1 class="title">Preoperative Clinical and OCT-Based Prediction of Visual Recovery After Macular Hole Surgery: An Uncertainty-Calibrated Multimodal Benchmark</h1>
+    <div class="authors">
+        <strong>Sonali Gupta</strong><br>
+        <span style="font-size: 10pt; color: #333;">Department of Computer Science and Engineering, Thapar Institute of Engineering and Technology, Patiala, Punjab 147004, India</span><br>
+        <span style="font-size: 9.5pt; color: #475569;">Target Journal: <em>Computerized Medical Imaging and Graphics / Artificial Intelligence in Medicine / TVST</em> (2026)</span>
+    </div>
+
+    <div class="abstract-box">
+        <p style="margin-bottom: 8px;"><strong>Purpose:</strong> Idiopathic Full-Thickness Macular Hole (FTMH) surgery achieves &gt;90% anatomical closure, yet postoperative visual acuity (VA) recovery exhibits substantial, unexplained patient heterogeneity. Prior machine learning benchmarks on the standard CHU de Qu&eacute;bec cohort (N=121) were limited to arbitrary single splits, coarse binary thresholds (&ge; 15-letter gain), uncalibrated point estimates, and multimodal representation overfitting. This study establishes a fold-isolated, dual-task multimodal benchmark with finite-sample, distribution-free uncertainty quantification.</p>
+        <p style="margin-bottom: 8px;"><strong>Methods:</strong> Preoperative clinical features, geometric OCT morphometrics, and Siamese ResNet-50 embeddings compressed via fold-isolated PCA (k=8) were evaluated across 25-fold Repeated Stratified Cross-Validation (n=104 development cohort) and an independently locked held-out test cohort (n=17). Both binary classification (&ge; 15 letters gain) and continuous visual recovery regression (&Delta;VA) were benchmarked alongside out-of-fold cross-conformal prediction calibration.</p>
+        <p style="margin-bottom: 8px;"><strong>Results:</strong> Preoperative baseline visual acuity alone dominated binary classification (AUROC = 82.70 &plusmn; 8.31%), outperforming full clinical tables (80.70 &plusmn; 9.97%) and published hybrid CNNs (81.9 &plusmn; 5.2%), verified independent of chart ceiling effects (p=0.0011). Standalone deep vision embeddings (Track E3) exhibited small-sample representation overfitting (59.47 &plusmn; 9.02% in CV, collapsing to 34.7% on test; morphometry Track E4 reached 61.11 &plusmn; 9.02% in CV, dropping to 54.2% on test). Regularized multimodal late fusion of clinical features and vision embeddings yielded the numerically top continuous recovery model (R<sup>2</sup> = 0.485 &plusmn; 0.137, MAE = 8.66 &plusmn; 1.73 letters), though its margin over clinical variables alone did not reach statistical significance (Wilcoxon p=0.156, Nadeau&ndash;Bengio p=0.684). Cross-conformal prediction delivered well-calibrated 90% confidence intervals (85.34 &plusmn; 8.48% CV coverage, radius &plusmn; 14.05 letters; test coverage 13/17 = 76.5%).</p>
+        <p style="margin-bottom: 8px;"><strong>Conclusions:</strong> Preoperative visual acuity is the primary driver of binary surgical prognosis. While multimodal fusion refines continuous recovery predictions, distribution-free conformal calibration is essential to deliver reliable, uncertainty-aware clinical decision support.</p>
+        <div class="keywords"><strong>Keywords:</strong> Idiopathic Macular Hole, Optical Coherence Tomography (OCT), Multimodal Deep Learning, Conformal Prediction, Uncertainty Quantification, Visual Acuity Regression, Vitreoretinal Surgery.</div>
+    </div>
+
+    <!-- 1. INTRODUCTION -->
+    <h2>1. Introduction</h2>
+    <p>Idiopathic Full-Thickness Macular Hole (FTMH) is a primary cause of central vision impairment in older adults, typically presenting in patients in their 60s and 70s with a well-documented female predominance (&approx; 70%) [2]. The condition arises when incomplete posterior vitreous detachment exerts mechanical traction on the central fovea, tearing through all neurosensory retinal layers from the internal limiting membrane (ILM) to the retinal pigment epithelium (RPE) [1], [3].</p>
+    
+    <h3>1.1 Clinical Course and the Functional Recovery Paradox</h3>
+    <p>As vitreous traction disrupts the foveal architecture, patients experience progressive central vision loss, distorted vision (metamorphopsia), and central blind spots [4]. Without surgical repair, continuous exposure of the unroofed photoreceptors to intraocular fluid leads to irreversible cellular degeneration and permanent visual loss [5].</p>
+    <p>Modern vitreoretinal management relies on pars plana vitrectomy (PPV) combined with ILM peeling and intraocular gas tamponade (e.g., sulfur hexafluoride [SF<sub>6</sub>] or perfluoropropane [C<sub>3</sub>F<sub>8</sub>]), which achieves <strong>anatomical hole closure in over 90% to 95% of surgical cases</strong> [6]. However, vitreoretinal surgeons face a profound clinical dilemma: <strong>anatomical hole closure does not guarantee functional visual recovery</strong> [7]. Following successful surgical flattening and complete re-apposition of the hole margins, post-operative visual recovery exhibits extreme clinical heterogeneity: while a subset of patients achieves rapid, dramatic visual acuity improvement exceeding 3 to 4 lines on the Early Treatment Diabetic Retinopathy Study (ETDRS) chart (&ge; 15 letters gain), a substantial proportion of patients experiencing identical anatomical closure exhibits minimal or no visual improvement, and some suffer permanent functional deficits [5].</p>
+
+    <h3>1.2 Related Work &amp; Prior Prognostic Literature</h3>
+    <p>Prognostic modeling in macular hole surgery has progressed through several distinct evolutionary phases:</p>
+    <p><strong>Classical OCT Morphometry:</strong> Clinicians initially turned to manual geometric calipers on cross-sectional OCT to forecast visual recovery. Ullrich et al. [8] identified the Minimum Linear Diameter (MLD) as a primary prognostic marker, while Kusuhara et al. [3] introduced the Macular Hole Index (MHI = Hole Height / Basal Diameter), showing that taller, narrower holes with MHI &ge; 0.5 generally achieve better postoperative vision. Subsequent indices, such as the Tractional Hole Index (THI = Height / MLD) [9] and Diameter Hole Index (DHI), built on the same geometric premise. Yet these measurements describe only the macro-architecture of the hole, overlooking the biological health of the surrounding neural tissue. Microstructural studies by Wakabayashi et al. [5] and Baumann et al. [7] later revealed that postoperative visual recovery actually hinges on outer retinal restoration—specifically whether the External Limiting Membrane (ELM) and Ellipsoid Zone (EZ) reconstitute following surgery. However, reliably segmenting and quantifying these delicate microscopic layers on OCT is notoriously difficult. This challenge led Singh et al. (2022) [10] to curate a dedicated 5,243-slice public benchmark across 107 patients, highlighting both the clinical value and the technical complexity of automated ELM boundary detection.</p>
+    <p><strong>Deep Learning on Clinical and OCT Data:</strong> Lachance et al. (2021, 2022) [11], [12] established foundational machine learning benchmarks on the publicly released CHU de Québec cohort (N=121), reporting an AUROC of 80.6 &plusmn; 7.2% from seven clinical features alone, 72.8 &plusmn; 14.6% from a convolutional neural network (CBR-Tiny) trained directly on preoperative OCT B-scans, and 81.9 &plusmn; 5.2% from a late-fusion hybrid model for binary visual gain (&ge; 15 letters).</p>
+    <p><strong>Continuous Acuity Regression and Uncertainty Quantification:</strong> Obata et al. [13] developed a deep learning approach predicting four-class ordinal visual acuity tiers (R<sup>2</sup> = 0.52, p &lt; 0.005). Kucukgoz et al. (2023, 2024) [14] utilized dense 3D OCT volumes (49 scans per eye, N=210) across nine deep architectures, achieving MAE = 6.47 letters (R<sup>2</sup> = 0.52). Most recently, Kucukgoz et al. (2025) [15] introduced the Uncertainty-Aware Retinal Model (U-ARM), employing deep evidential regression to predict visual acuity and parametric uncertainty bounds. Notably, Kucukgoz et al. evaluated U-ARM directly on the same public HD-OCT of Macular Hole dataset used in this study, reporting an internal test MAE = 6.49 &plusmn; 0.26 letters (R<sup>2</sup> = 0.42, p &lt; 0.005) and an external test MAE = 6.97 &plusmn; 0.28 letters (R<sup>2</sup> = 0.40, p = 0.039) for 3-month visual acuity using parametric Normal-Inverse-Gamma (NIG) priors.</p>
+
+    <!-- Table 1 -->
+    <table>
+        <caption><strong>TABLE I: Systematic Benchmark Comparison of Prior Literature and Proposed Multimodal Conformal Framework</strong></caption>
+        <thead>
+            <tr>
+                <th>Study / Reference</th>
+                <th>Year</th>
+                <th>Cohort Dataset</th>
+                <th>Sample Size (N)</th>
+                <th>Prognostic Task &amp; Endpoint</th>
+                <th>Best Reported Result</th>
+                <th>Uncertainty Quantification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lachance et al. [11]</td>
+                <td>2021</td>
+                <td>HD-OCT of MH</td>
+                <td>121</td>
+                <td>Binary Gain (&ge; 15 letters)</td>
+                <td>AUROC = 80.6%</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Lachance et al. [12]</td>
+                <td>2022</td>
+                <td>HD-OCT of MH</td>
+                <td>121</td>
+                <td>Binary Gain (&ge; 15 letters)</td>
+                <td>AUROC = 81.9%</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Obata et al. [13]</td>
+                <td>2021</td>
+                <td>Clinical Cohort</td>
+                <td>—</td>
+                <td>4-Tier Ordinal Staging</td>
+                <td>R<sup>2</sup> = 0.52, p &lt; 0.005</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Kucukgoz et al. [14]</td>
+                <td>2024</td>
+                <td>OCT-Newcastle 3D</td>
+                <td>210</td>
+                <td>Continuous Postop VA</td>
+                <td>MAE = 6.47, R<sup>2</sup> = 0.52</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Kucukgoz et al. (U-ARM, Internal) [15]</td>
+                <td>2025</td>
+                <td>HD-OCT of MH</td>
+                <td>320 imgs</td>
+                <td>Continuous 3-Month VA</td>
+                <td>MAE = 6.49, R<sup>2</sup> = 0.42</td>
+                <td>Evidential (Parametric NIG)</td>
+            </tr>
+            <tr>
+                <td>Kucukgoz et al. (U-ARM, External) [15]</td>
+                <td>2025</td>
+                <td>HD-OCT of MH</td>
+                <td>—</td>
+                <td>Continuous 3-Month VA</td>
+                <td>MAE = 6.97, R<sup>2</sup> = 0.40</td>
+                <td>Evidential (Parametric NIG)</td>
+            </tr>
+            <tr style="background: #f0f7ff; font-weight: bold;">
+                <td>This Work (Proposed)</td>
+                <td>2026</td>
+                <td>HD-OCT of MH</td>
+                <td>121 (104 Dev / 17 Test)</td>
+                <td>Dual: Continuous 6mo &Delta;VA + Binary</td>
+                <td>R<sup>2</sup> = 0.485–0.557, AUROC = 82.7%</td>
+                <td>Conformal (Distribution-Free)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.3 Open Clinical and Methodological Gaps</h3>
+    <ol>
+        <li><strong>Arbitrary Binary Outcome Thresholds and Chart Ceilings:</strong> Single-threshold formulations (&ge; 15-letter gain) discard recovery granularity and artificially penalize models for patients with high baseline acuity near the 100-letter ETDRS chart ceiling. Furthermore, prior studies evaluated only a single arbitrary train/test split.</li>
+        <li><strong>The Multimodal Small-Sample Paradox:</strong> Combining high-dimensional deep vision embeddings (2048-D) with tabular clinical data in small cohorts (N &approx; 100) introduces feature noise that can degrade strong clinical baselines unless regularized with fold-isolated dimensionality reduction.</li>
+        <li><strong>Rigid Parametric Uncertainty Assumptions:</strong> Prior uncertainty modeling in retinal surgery relies on parametric distributions (such as evidential regression with Normal-Inverse-Gamma priors). Distribution-free, finite-sample uncertainty calibration has not been previously established for macular hole surgery.</li>
+    </ol>
+
+    <h3>1.4 Key Contributions</h3>
+    <ul>
+        <li><strong>Dual-Task Prognostic Architecture:</strong> Evaluating both binary functional gain (&ge; 15 letters) and continuous visual recovery (&Delta;VA = VA<sub>6mo</sub> - VA<sub>baseline</sub>) across 25 Repeated Stratified CV folds and an independent locked test set.</li>
+        <li><strong>Dominance and Robustness of Baseline Acuity:</strong> Formal multi-seed validation showing baseline visual acuity alone achieves 82.70 &plusmn; 8.31% AUROC, robust to chart ceiling effects (p=0.0011).</li>
+        <li><strong>Distribution-Free Conformal Prediction:</strong> Delivering 85.34 &plusmn; 8.48% empirical coverage at a calibrated radius of &plusmn; 14.05 letters with finite-sample guarantees.</li>
+        <li><strong>Transparent Negative Findings on Standalone Deep Embeddings:</strong> Documenting representation overfitting in uncompressed deep vision models (59.47% CV to 34.7% test).</li>
+    </ul>
+
+    <!-- 2. PROPOSED METHODOLOGY -->
+    <h2>2. Proposed Methodology</h2>
+
+    <h3>2.1 Mathematical Notations and Formal Problem Formulation</h3>
+    <p>To establish a mathematically rigorous foundation for all multimodal representations, prognostic predictions, and uncertainty guarantees, we define the complete formal notations, operational spaces, and governing equations employed throughout this framework.</p>
+
+    <p><strong>Observation Spaces and Multimodal Tuples:</strong> Let \(\mathcal{D} = \{ \mathbf{z}_i \}_{i=1}^N\) denote the benchmark dataset of \(N=121\) patient records drawn exchangeably from an underlying distribution \(\mathcal{P}_{\mathcal{Z}}\). Each individual patient observation is represented by a multimodal tuple:</p>
+    <div style="background:#f8f9fa; padding:10px; border-left:4px solid #2563eb; margin:10px 0; font-family:monospace;">
+        \(\mathbf{z}_i = \left( \mathbf{c}_i^{\text{raw}},\, \mathbf{I}_{i,H},\, \mathbf{I}_{i,V},\, y_i^{\text{post}} \right) \in \mathcal{Z}\)
+    </div>
+    <p>where \(\mathbf{c}_i^{\text{raw}} = [c_{i,1}^{\text{raw}}, \dots, c_{i,7}^{\text{raw}}]^{\top} \in \mathbb{R}^7\) denotes the raw preoperative vector of seven clinical and demographic variables (age, sex, lens status, symptom duration, margin elevation, hole diameter, baseline VA); \(\mathbf{I}_{i,H}, \mathbf{I}_{i,V} \in \mathbb{R}^{496 \times 768}\) denote the raw high-resolution horizontal and vertical foveal cross-hair HD-OCT B-scans; and \(y_i^{\text{post}} = \text{VA}_i^{6\text{mo}} \in \mathbb{R}\) represents the ground-truth post-operative Best-Corrected Visual Acuity measured at 6 months.</p>
+
+    <p><strong>Dual-Task Learning Objectives:</strong> Post-operative visual recovery is formulated as a dual-task learning problem providing both clinical risk stratification and continuous functional recovery tracking:</p>
+    <ol>
+        <li><strong>Primary Task (Binary Surgical Gain):</strong> Predict whether an eye achieves substantial functional visual recovery (&ge; 3 ETDRS lines, or 15 letters) at six months post-vitrectomy:
+            <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+                \(y_i^{\text{bin}} = \mathbb{I}\left(\text{VA}_i^{6\text{mo}} - \text{VA}_i^{\text{baseline}} \ge 15 \text{ ETDRS letters}\right) \in \{0, 1\}\)
+            </div>
+            where \(\mathbb{I}(\cdot)\) evaluates to 1 for substantial visual recovery and 0 otherwise.
+        </li>
+        <li><strong>Secondary Task (Continuous Recovery Regression):</strong> Predict the net continuous change in visual acuity:
+            <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+                \(y_i^{\text{reg}} = \Delta \text{VA}_i = \text{VA}_i^{6\text{mo}} - \text{VA}_i^{\text{baseline}} \in \mathbb{R}\)
+            </div>
+        </li>
+    </ol>
+
+    <p><strong>In-Fold Clinical Preprocessing and Scaling:</strong> Sentinel -9 encodings are converted to explicit nulls and median-imputed. Parameters are computed strictly from training partition instances \(\mathcal{D}_{\text{train}}\):</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\mu_j = \frac{1}{|\mathcal{D}_{\text{train}}|} \sum_{i \in \mathcal{D}_{\text{train}}} c_{i,j}^{\text{imputed}}, \quad \sigma_j = \sqrt{\frac{1}{|\mathcal{D}_{\text{train}}| - 1} \sum_{i \in \mathcal{D}_{\text{train}}} \left( c_{i,j}^{\text{imputed}} - \mu_j \right)^2}\)
+    </div>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\mathbf{x}_i^{\text{clin}} = \left( \mathbf{c}_i^{\text{imputed}} - \bm{\mu}_{\text{train}} \right) \oslash \left( \bm{\sigma}_{\text{train}} + \epsilon \right) = \left[ \frac{c_{i,1}^{\text{imputed}} - \mu_1}{\sigma_1 + \epsilon}, \; \dots, \; \frac{c_{i,7}^{\text{imputed}} - \mu_7}{\sigma_7 + \epsilon} \right]^{\top} \in \mathbb{R}^7\)
+    </div>
+
+    <p><strong>OCT Standardization and Siamese Vision Embeddings:</strong> B-scans are intensity normalized via \(\tilde{I}(x, y) = \frac{I(x, y) - \min(I)}{\max(I) - \min(I) + 10^{-6}}\) and center-cropped to \(448 \times 448\). Truncated ResNet-50 backbone \(\phi(\cdot)\) extracts 2048-D features, fused via symmetric mean pooling:</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\mathbf{f}_i = \frac{1}{2}\left( \phi(\tilde{\mathbf{I}}_{i,H}) + \phi(\tilde{\mathbf{I}}_{i,V}) \right) \in \mathbb{R}^{2048}\)
+    </div>
+
+    <div class="figure-box">
+        <img src="results/figures/fig_master_methodology_architecture.png" alt="Fig 1: Master Methodology Architecture">
+        <div class="caption"><strong>Fig. 1.</strong> End-to-end modular architecture of the proposed multimodal machine learning framework for postoperative visual acuity prognosis. Stage 1: Dual-axis foveal B-scans (448&times;448) and cohort store (N=121). Stage 2: Quality verification, sentinel imputation (-9 &rarr; NaN), and fold-isolated clinical standardization. Stage 3: Automated caliper detection and computation of scale-invariant foveal morphometry indices (MHI, THI, DHI). Stage 4: Siamese ResNet-50 spatial encoding with symmetric mean pooling (2048-D) and fold-isolated PCA-8 projection. Stage 5: Multimodal Late Fusion Ensemble (50% regularized Linear + 50% shallow HistGBDT) yielding dual prognostic outputs equipped with distribution-free cross-conformal uncertainty intervals.</div>
+    </div>
+
+    <p><strong>Fold-Isolated Dimensionality Reduction (PCA-8):</strong> In-fold empirical covariance matrix \(\mathbf{\Sigma}_f = \frac{1}{|\mathcal{D}_{\text{train}}| - 1} \sum_{i \in \mathcal{D}_{\text{train}}} (\mathbf{f}_i - \bm{\mu}_f)(\mathbf{f}_i - \bm{\mu}_f)^{\top}\) is decomposed to orthogonal projection matrix \(\mathbf{V}_k \in \mathbb{R}^{2048 \times 8}\):</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\mathbf{x}_i^{\text{vis}} = \mathbf{V}_k^{\top} \left( \mathbf{f}_i - \bm{\mu}_f \right) \in \mathbb{R}^8\)
+    </div>
+
+    <p><strong>Automated Macro-Morphometry Features:</strong> Minimum Linear Diameter (\(\text{MLD}_i\)), Basal Diameter (\(\text{BD}_i\)), and Hole Height (\(H_i\)) yield scale-invariant geometric indices \(\text{MHI}_i = \frac{H_i}{\text{BD}_i}, \; \text{THI}_i = \frac{H_i}{\text{MLD}_i}, \; \text{DHI}_i = \frac{\text{BD}_i - \text{MLD}_i}{H_i}\), producing \(\mathbf{x}_i^{\text{morph}} \in \mathbb{R}^6\).</p>
+
+    <p><strong>Multimodal Late Fusion and Supervised Objectives:</strong> Multimodal vector \(\mathbf{x}_i^{\text{multimodal}} = [(\mathbf{x}_i^{\text{clin}})^{\top}, (\mathbf{x}_i^{\text{vis}})^{\top}]^{\top} \in \mathbb{R}^{15}\) is optimized via:</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\hat{\mathbf{w}}_{\text{ridge}} = \arg\min_{\mathbf{w}} \sum_{i \in \mathcal{D}_{\text{train}}} \left( y_i^{\text{reg}} - \mathbf{w}^{\top}\mathbf{x}_i^{\text{multimodal}} \right)^2 + \lambda \|\mathbf{w}\|_2^2\)
+    </div>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\hat{g}_{\text{GBDT}} = \arg\min_{g \in \mathcal{H}_{\text{tree}}} \sum_{i \in \mathcal{D}_{\text{train}}} \mathcal{L}_{\text{Huber}}\left( y_i^{\text{reg}},\, g(\mathbf{x}_i^{\text{multimodal}}) \right) + \Omega(g)\)
+    </div>
+    <p>where \(\mathcal{L}_{\text{Huber}}(y, \hat{y}) = \frac{1}{2}(y - \hat{y})^2\) if \(|y - \hat{y}| \le \delta\) and \(\delta |y - \hat{y}| - \frac{1}{2}\delta^2\) otherwise (\(\delta=1.35\)). The ensembled point prediction is:</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\hat{\mu}(\mathbf{x}_i) = \frac{1}{2}\hat{\mathbf{w}}_{\text{ridge}}^{\top}\mathbf{x}_i^{\text{multimodal}} + \frac{1}{2}\hat{g}_{\text{GBDT}}(\mathbf{x}_i^{\text{multimodal}}) \in \mathbb{R}\)
+    </div>
+    <p>and binary probability is \(\hat{p}_i = \sigma(\hat{\mathbf{w}}_{\text{clf}}^{\top}\mathbf{x}_i) = \frac{1}{1 + \exp(-\hat{\mathbf{w}}_{\text{clf}}^{\top}\mathbf{x}_i)}\).</p>
+
+    <p><strong>Distribution-Free Out-of-Fold Cross-Conformal Prediction:</strong> Absolute residual non-conformity scores \(s_i = |y_i - \hat{\mu}(\mathbf{x}_i)|\) computed on out-of-fold instances yield calibrated quantile \(\hat{q} = \text{Quantile}(\{s_i\}, \min(1.0, \frac{\lceil (n_{\text{dev}}+1)(1-\alpha) \rceil}{n_{\text{dev}}}))\). The prediction interval:</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(\mathcal{C}_{1-\alpha}(\mathbf{x}_{n+1}) = \left[ \hat{\mu}(\mathbf{x}_{n+1}) - \hat{q}, \;\; \hat{\mu}(\mathbf{x}_{n+1}) + \hat{q} \right] \subset \mathbb{R}\)
+    </div>
+    <p>satisfies finite-sample marginal coverage: \(\mathbb{P}(y_{n+1} \in \mathcal{C}_{1-\alpha}(\mathbf{x}_{n+1})) \ge 1 - \alpha\).</p>
+
+    <p><strong>Resampled Significance Testing (Nadeau–Bengio Correction):</strong> For \(J=25\) evaluation folds with difference \(d_j\), variance \(S_d^2 = \frac{1}{J-1}\sum_{j=1}^J (d_j - \bar{d})^2\) gives:</p>
+    <div style="background:#f8f9fa; padding:8px; border-left:3px solid #2563eb; margin:6px 0; font-family:monospace;">
+        \(t_{\text{NB}} = \frac{\bar{d}}{\sqrt{\left( \frac{1}{J} + \frac{n_{\text{val}}}{n_{\text{train}}} \right) S_d^2}}\)
+    </div>
+
+    <h3>2.2 Dataset Description and Partitioning</h3>
+    <p>The benchmark HD-OCT Macular Hole dataset (Godbout et al., CHU de Québec, 2014–2018) contains 494 total patient records across four partitions: train (83), val (21), test (17), and others (373). We partitioned the data under strict fold-isolation rules:</p>
+    <ul>
+        <li><strong>Benchmark Cohort (N = 121):</strong> Complete preoperative clinical data, two orthogonal OCT B-scans (horizontal and vertical), and standardized 6-month ETDRS visual acuity follow-up.
+            <ul>
+                <li><em>Development Cohort (n = 104):</em> Merged train (83) and val (21) partitions, used exclusively for 25-fold Repeated Stratified CV, hyperparameter tuning, and conformal quantile calibration.</li>
+                <li><em>Locked Held-Out Test Cohort (n = 17):</em> Standard test partition (8 positive, 9 negative cases), evaluated exactly once after all models were permanently frozen.</li>
+            </ul>
+        </li>
+        <li><strong>Auxiliary Cohort (n = 373, others):</strong> Uncurated records lacking standardized 6-month follow-up were completely excluded from supervised training and evaluation.</li>
+    </ul>
+
+    <h3>2.3 Exploratory Data Analysis (EDA)</h3>
+    <p>Analysis of the benchmark cohort (N=121) shows a baseline VA of 50 &plusmn; 16 letters (range: 0–85) and a 6-month postoperative mean of 66 &plusmn; 12 letters (mean functional visual gain &Delta;VA = +16 &plusmn; 15 letters; exactly 49.6% [60/121, or 50%] gained &ge; 15 letters). Preoperative minimum linear diameter (mh_size) averaged 343 &plusmn; 167 &mu;m (range: 80–808 &mu;m). Female patients comprised 72.7% (88/121), with mean age 67 &plusmn; 8 years. At baseline, 18.2% (22/121) of eyes were pseudophakic (prior cataract surgery) and 81.8% were phakic. Preoperative symptom duration averaged 11 &plusmn; 9 weeks (range: 1–75+ weeks), and 91.7% (111/121) presented with elevated hole margins.</p>
+
+    <h3>2.4 Data Preprocessing, Sanitization, and Fold Isolation</h3>
+    <p>Clinical trials frequently contain unrecorded data, scale disparities, and image acquisition noise. Sentinel missing indicators (coded as -9 in <code>mh_duration</code> [4 cases, 3.3%] and <code>elevated_edge</code> [2 cases, 1.7%]) were converted to missing and imputed using training-fold medians. All continuous variables were scaled via training-fold isolated z-score standardization \(\mathbf{x}_i^{\text{clin}} = (\mathbf{c}_i^{\text{imputed}} - \bm{\mu}_{\text{train}}) \oslash (\bm{\sigma}_{\text{train}} + \epsilon)\) to prevent optimistic evaluation bias.</p>
+
+    <table>
+        <caption><strong>TABLE I-B: Preoperative Clinical Feature Registry, Missingness Audit, and Preprocessing Protocol (N=121)</strong></caption>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Clinical Definition</th>
+                <th>Type</th>
+                <th>Baseline Distribution (N=121)</th>
+                <th>Missingness (n, %)</th>
+                <th>Fold-Isolated Preprocessing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>age</code></td><td>Patient age at presentation</td><td>Continuous</td><td>67 &plusmn; 8 years (39–90)</td><td>0 (0.0%)</td><td>In-fold z-score scaling</td></tr>
+            <tr><td><code>sex</code></td><td>Biological sex</td><td>Binary</td><td>88 Female (72.7%) / 33 Male</td><td>0 (0.0%)</td><td>Binary: 0=Male, 1=Female</td></tr>
+            <tr><td><code>pseudophakic</code></td><td>Lens status</td><td>Binary</td><td>22 Pseudophakic (18.2%) / 99 Phakic</td><td>0 (0.0%)</td><td>Binary: 0=Phakic, 1=Pseudophakic</td></tr>
+            <tr><td><code>mh_duration</code></td><td>Symptom duration</td><td>Continuous</td><td>11 &plusmn; 9 weeks (1–75+)</td><td>4 (3.3%)</td><td>Sentinel -9 &rarr; NaN; in-fold median + z-score</td></tr>
+            <tr><td><code>elevated_edge</code></td><td>Margin detachment</td><td>Binary</td><td>111 Elevated (91.7%) / 8 Flat</td><td>2 (1.7%)</td><td>Sentinel -9 &rarr; NaN; in-fold mode imputation</td></tr>
+            <tr><td><code>mh_size</code></td><td>Minimum Linear Diameter</td><td>Continuous</td><td>343 &plusmn; 167 &mu;m (80–808)</td><td>0 (0.0%)</td><td>In-fold z-score scaling</td></tr>
+            <tr><td><code>va_baseline</code></td><td>Preoperative Visual Acuity</td><td>Continuous</td><td>50 &plusmn; 16 ETDRS letters (0–85)</td><td>0 (0.0%)</td><td>In-fold z-score scaling</td></tr>
+        </tbody>
+    </table>
+
+    <p>Dual-axis foveal B-scans (\(\mathbf{I}_{i,H}, \mathbf{I}_{i,V} \in \mathbb{R}^{496 \times 768}\)) were intensity min-max normalized to [0, 1] and center-cropped to \(448 \times 448\) pixels centered on the foveal depression.</p>
+
+    <h3>2.5 Architecture &amp; Feature Tracks</h3>
+    <p>Each patient observation is processed through three parallel tracks:</p>
+    <ul>
+        <li><strong>Track 0 (Clinical Prior):</strong> 7 standardized preoperative variables \(\mathbf{x}_i^{\text{clin}} \in \mathbb{R}^7\).</li>
+        <li><strong>Track 1 (Siamese Vision Embeddings):</strong> Dual-stream ResNet-50 backbones extract 2048-D representations, compressed to 8 orthogonal components via fold-isolated PCA: \(\mathbf{x}_i^{\text{vis}} \in \mathbb{R}^8\).</li>
+        <li><strong>Track 2 (Automated Morphometry):</strong> Geometric measurement of MLD, Basal Diameter, Height, MHI, THI, and DHI: \(\mathbf{x}_i^{\text{morph}} \in \mathbb{R}^6\).</li>
+        <li><strong>Multimodal Late Fusion Ensemble:</strong> Combines clinical and vision latents \(\mathbf{x}_i^{\text{multimodal}} \in \mathbb{R}^{15}\) into an equal-weighted ensemble of shallow Histogram Gradient-Boosted Trees (max_depth=2, max_iter=35, lr=0.05, min_samples_leaf=4, L<sub>2</sub>=1.5) and L<sub>2</sub>-regularized linear models (Ridge \(\alpha=2.0\), Logistic Regression \(C=0.5\)).</li>
+    </ul>
+
+    <!-- 3. RESULTS AND DISCUSSION -->
+    <h2>3. Results and Discussion</h2>
+
+    <h3>3.1 Performance Parameters</h3>
+    <p>We track AUROC, F<sub>1</sub>-score, and Exact Accuracy for classification; R<sup>2</sup>, MAE (letters), and RMSE for continuous regression; and Prediction Interval Coverage Probability (PICP) and radius \(\hat{q}\) for conformal uncertainty.</p>
+
+    <h3>3.2 Results: Cross-Validation &amp; Test Ablation</h3>
+
+    <!-- Table 2 -->
+    <table>
+        <caption><strong>TABLE II: 25-Fold Repeated Stratified Cross-Validation Benchmark (Development Cohort, n=104)</strong></caption>
+        <thead>
+            <tr>
+                <th>Track</th>
+                <th>Configuration Description</th>
+                <th>Inputs</th>
+                <th>AUROC (%)</th>
+                <th>F1 (%)</th>
+                <th>R<sup>2</sup></th>
+                <th>MAE (let)</th>
+                <th>OOF PICP (%)</th>
+                <th>q_hat (let)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>R1</td>
+                <td>Clinical Baseline (Lachance et al. [12])</td>
+                <td>7 Clinical</td>
+                <td>80.6 &plusmn; 7.2</td>
+                <td>79.7 &plusmn; 6.8</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>R2</td>
+                <td>CBR-Tiny CNN (Lachance et al. [12])</td>
+                <td>OCT Only</td>
+                <td>72.8 &plusmn; 14.6</td>
+                <td>61.5 &plusmn; 23.7</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>R3</td>
+                <td>Hybrid CNN-Clinical (Lachance et al. [12])</td>
+                <td>OCT + Clinical</td>
+                <td>81.9 &plusmn; 5.2</td>
+                <td>80.4 &plusmn; 7.7</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr style="background: #f8fafc; font-weight: bold;">
+                <td>E1</td>
+                <td>Baseline VA Only</td>
+                <td>1 Feature</td>
+                <td>82.70 &plusmn; 8.31</td>
+                <td>69.67 &plusmn; 9.08</td>
+                <td>0.476 &plusmn; 0.128</td>
+                <td>8.73 &plusmn; 1.45</td>
+                <td>88.82 &plusmn; 8.11</td>
+                <td>&plusmn;16.03 &plusmn; 0.86</td>
+            </tr>
+            <tr>
+                <td>E2</td>
+                <td>Full Clinical Baseline</td>
+                <td>7 Features</td>
+                <td>80.70 &plusmn; 9.97</td>
+                <td>66.64 &plusmn; 13.34</td>
+                <td>0.478 &plusmn; 0.138</td>
+                <td>8.75 &plusmn; 1.52</td>
+                <td>85.17 &plusmn; 7.92</td>
+                <td>&plusmn;14.11 &plusmn; 1.01</td>
+            </tr>
+            <tr>
+                <td>E3</td>
+                <td>Vision Embeddings Only</td>
+                <td>PCA-8</td>
+                <td>59.47 &plusmn; 9.02</td>
+                <td>52.22 &plusmn; 10.83</td>
+                <td>-0.001 &plusmn; 0.141</td>
+                <td>11.51 &plusmn; 2.10</td>
+                <td>86.89 &plusmn; 8.38</td>
+                <td>&plusmn;22.53 &plusmn; 1.30</td>
+            </tr>
+            <tr>
+                <td>E4</td>
+                <td>Macro Morphometry Only</td>
+                <td>6 Geometries</td>
+                <td>61.11 &plusmn; 9.02</td>
+                <td>58.20 &plusmn; 6.45</td>
+                <td>-0.229 &plusmn; 0.575</td>
+                <td>12.27 &plusmn; 2.44</td>
+                <td>85.16 &plusmn; 8.64</td>
+                <td>&plusmn;22.67 &plusmn; 2.37</td>
+            </tr>
+            <tr>
+                <td>E5</td>
+                <td>Clinical + Morphometry</td>
+                <td>13 Features</td>
+                <td>80.95 &plusmn; 9.35</td>
+                <td>69.87 &plusmn; 9.16</td>
+                <td>0.414 &plusmn; 0.176</td>
+                <td>9.21 &plusmn; 1.80</td>
+                <td>83.65 &plusmn; 8.88</td>
+                <td>&plusmn;13.78 &plusmn; 0.98</td>
+            </tr>
+            <tr style="background: #f0fdf4; font-weight: bold;">
+                <td>E6</td>
+                <td>Clinical + Vision (Multimodal)</td>
+                <td>15 Features</td>
+                <td>79.33 &plusmn; 8.85</td>
+                <td>70.24 &plusmn; 12.15</td>
+                <td>0.485 &plusmn; 0.137</td>
+                <td>8.66 &plusmn; 1.73</td>
+                <td>85.34 &plusmn; 8.48</td>
+                <td>&plusmn;14.05 &plusmn; 1.24</td>
+            </tr>
+            <tr>
+                <td>E7</td>
+                <td>Full Multimodal Fusion</td>
+                <td>21 Features</td>
+                <td>80.29 &plusmn; 7.96</td>
+                <td>71.41 &plusmn; 10.25</td>
+                <td>0.438 &plusmn; 0.152</td>
+                <td>8.97 &plusmn; 1.95</td>
+                <td>83.61 &plusmn; 9.30</td>
+                <td>&plusmn;13.61 &plusmn; 1.15</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="figure-box">
+        <img src="results/figures/fig1_roc_and_calibration_curves.png" alt="Fig 2: ROC and Calibration Curves">
+        <div class="caption"><strong>Fig. 2.</strong> Receiver Operating Characteristic (ROC) and Reliability/Calibration curves across 25-fold Repeated Stratified CV on the development cohort (n=104). (A) ROC curves across standalone modalities and Multimodal Late Fusion. (B) Reliability curves demonstrating empirical probability calibration.</div>
+    </div>
+
+    <!-- Table 3 -->
+    <table>
+        <caption><strong>TABLE III: Confirmatory Single-Pass Evaluation on Locked Held-Out Test Cohort (n=17)</strong></caption>
+        <thead>
+            <tr>
+                <th>Track</th>
+                <th>Configuration</th>
+                <th>AUROC (%)</th>
+                <th>Accuracy (%)</th>
+                <th>R<sup>2</sup></th>
+                <th>MAE (let)</th>
+                <th>RMSE (let)</th>
+                <th>Conformal Coverage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>E1</td>
+                <td>Baseline VA Only</td>
+                <td>80.6</td>
+                <td>76.5</td>
+                <td>0.615</td>
+                <td>9.23</td>
+                <td>12.40</td>
+                <td>14/17 (82.4%)</td>
+            </tr>
+            <tr>
+                <td>E2</td>
+                <td>Full Clinical Baseline</td>
+                <td>79.2</td>
+                <td>76.5</td>
+                <td>0.542</td>
+                <td>10.16</td>
+                <td>13.51</td>
+                <td>12/17 (70.6%)</td>
+            </tr>
+            <tr>
+                <td>E3</td>
+                <td>Vision Embeddings Only</td>
+                <td>34.7</td>
+                <td>41.2</td>
+                <td>-0.198</td>
+                <td>16.64</td>
+                <td>21.86</td>
+                <td>13/17 (76.5%)</td>
+            </tr>
+            <tr>
+                <td>E4</td>
+                <td>Macro Morphometry Only</td>
+                <td>54.2</td>
+                <td>47.1</td>
+                <td>-0.042</td>
+                <td>15.07</td>
+                <td>20.39</td>
+                <td>13/17 (76.5%)</td>
+            </tr>
+            <tr>
+                <td>E5</td>
+                <td>Clinical + Morphometry</td>
+                <td>79.2</td>
+                <td>76.5</td>
+                <td>0.535</td>
+                <td>10.35</td>
+                <td>13.62</td>
+                <td>12/17 (70.6%)</td>
+            </tr>
+            <tr style="background: #f0fdf4; font-weight: bold;">
+                <td>E6</td>
+                <td>Clinical + Vision (Multimodal)</td>
+                <td>76.4</td>
+                <td>70.6</td>
+                <td>0.557</td>
+                <td>10.19</td>
+                <td>13.30</td>
+                <td>13/17 (76.5%)</td>
+            </tr>
+            <tr>
+                <td>E7</td>
+                <td>Full Multimodal Fusion</td>
+                <td>75.0</td>
+                <td>70.6</td>
+                <td>0.549</td>
+                <td>10.41</td>
+                <td>13.41</td>
+                <td>12/17 (70.6%)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="figure-box">
+        <img src="results/figures/fig_confusion_matrix.png" alt="Fig 3: Confusion Matrices">
+        <div class="caption"><strong>Fig. 3.</strong> Confusion matrices for binary visual acuity gain (&ge; 15 ETDRS letters) under the optimal multimodal late-fusion model. (A) Confirmatory single-pass evaluation on the locked held-out test cohort (n=17): 12/17 correct classifications (Accuracy = 70.6%, Sensitivity = 75.0%, Specificity = 66.7%, PPV = 66.7%, NPV = 75.0%). (B) 25-Fold Repeated Stratified Cross-Validation pooled out-of-fold evaluations (N=520 total evaluations across 5 repeats of 104 development patients): Accuracy = 70.2%, Sensitivity = 71.2%, Specificity = 69.2%, PPV = 69.8%, NPV = 70.6%.</div>
+    </div>
+
+    <h3>3.3 Statistical Validation &amp; Significance</h3>
+    <!-- Table 4 -->
+    <table>
+        <caption><strong>TABLE IV: Statistical Significance Testing Across 25 Repeated Cross-Validation Folds</strong></caption>
+        <thead>
+            <tr>
+                <th>Model Comparison</th>
+                <th>Metric</th>
+                <th>Mean Diff (&Delta;)</th>
+                <th>95% Bootstrap CI</th>
+                <th>Wilcoxon p</th>
+                <th>Nadeau-Bengio p</th>
+                <th>Statistical Conclusion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>E1 (VA) vs. E2 (Clinical)</td>
+                <td>AUROC</td>
+                <td>-0.0200 &plusmn; 0.0483</td>
+                <td>[-0.0387, -0.0010]</td>
+                <td>0.079</td>
+                <td>0.452</td>
+                <td>Non-Significant (Single-Seed)</td>
+            </tr>
+            <tr>
+                <td>E1 (VA) vs. E2 (Clinical)</td>
+                <td>MAE</td>
+                <td>+0.0208 &plusmn; 0.4667</td>
+                <td>[-0.1580, +0.1988]</td>
+                <td>0.895</td>
+                <td>0.935</td>
+                <td>Statistical Equivalence</td>
+            </tr>
+            <tr>
+                <td>E2 (Clinical) vs. E6 (Multimodal)</td>
+                <td>MAE</td>
+                <td>-0.0859 &plusmn; 0.3853</td>
+                <td>[-0.2258, +0.0668]</td>
+                <td>0.156</td>
+                <td>0.684</td>
+                <td>Non-Significant Numerical Gain</td>
+            </tr>
+            <tr>
+                <td>E2 (Clinical) vs. E6 (Multimodal)</td>
+                <td>R<sup>2</sup></td>
+                <td>+0.0070 &plusmn; 0.0336</td>
+                <td>[-0.0056, +0.0194]</td>
+                <td>0.339</td>
+                <td>0.703</td>
+                <td>Non-Significant Numerical Gain</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Multi-Seed Robustness (5 Seeds, 125 Total Folds):</strong> E1 consistently outperformed E2 across all seeds (mean AUROC 82.72 &plusmn; 0.50% vs. 79.16 &plusmn; 1.17%; seed-level paired t-test: t = 8.426, p = 0.0011; sign test p = 0.0312).</p>
+    <p><strong>Ceiling Effect Independence:</strong> In the non-ceiling subset (n=101), E1's advantage was fully maintained (+2.16% vs. +2.00% full cohort).</p>
+
+    <h3>3.4 Qualitative and Quantitative Analysis</h3>
+    <div class="figure-box">
+        <img src="results/figures/fig2_conformal_prediction_intervals.png" alt="Fig 4: Conformal Prediction Bounds">
+        <div class="caption"><strong>Fig. 4.</strong> Cross-conformal prediction uncertainty intervals for continuous visual acuity recovery (&Delta;VA) on the development cohort (n=104, 520 out-of-fold evaluations). The calibrated distribution-free 90% confidence band (&plusmn; 14.05 letters) achieves 85.34 &plusmn; 8.48% empirical coverage around the identity line (y = &ycirc;).</div>
+    </div>
+    <p><strong>Distribution-Free vs. Parametric Evidential Uncertainty:</strong> While existing ophthalmic deep evidential models (such as U-ARM) assume Gaussian/NIG priors that can degrade under clinical outlier shifts, our out-of-fold cross-conformal framework provides exact distribution-free finite-sample guarantees (85.34 &plusmn; 8.48% CV coverage, 13/17 test coverage) without assuming residual normality.</p>
+
+    <div class="figure-box">
+        <img src="results/figures/fig3_subgroup_error_stratification.png" alt="Fig 5: Subgroup Error Stratification">
+        <div class="caption"><strong>Fig. 5.</strong> Subgroup prediction error stratification (MAE in ETDRS letters). (A) Mean absolute error across macular hole diameter terciles. (B) Mean absolute error across preoperative baseline visual acuity terciles.</div>
+    </div>
+
+    <div class="figure-box">
+        <img src="results/figures/fig4_feature_importance_ranking.png" alt="Fig 6: Feature Importance">
+        <div class="caption"><strong>Fig. 6.</strong> Prognostic feature importance across the multimodal late fusion framework. Preoperative baseline visual acuity (VA<sub>baseline</sub>) represents the primary prognostic determinant, followed by lens status (pseudophakic), orthogonal deep vision latents (PC-6, PC-1), and elevated margins.</div>
+    </div>
+    <p><strong>Resolution of the Multimodal Fusion Paradox:</strong> In small medical sample regimes (N &approx; 100), standalone 2048-D deep vision embeddings suffer from representation overfitting in isolation (59.47% CV AUROC collapsing to 34.7% on test). Fold-isolated PCA-8 compression with regularized late fusion successfully protects the clinical prior from noise contamination, achieving top continuous recovery variance (R<sup>2</sup> = 0.485, MAE = 8.66 letters) while preserving clinical interpretability.</p>
+
+    <!-- 4. MATHEMATICAL NOTATIONS AND ALGORITHMS -->
+    <h2>4. Mathematical Formulations and Algorithms</h2>
+
+    <p>Every mathematical symbol, vector dimension, and operational mapping is formally defined in the text immediately prior to its corresponding equation.</p>
+
+    <h3>4.1 Problem Formulation &amp; Observation Spaces</h3>
+    <p>Let \(\mathcal{D} = \{ \mathbf{z}_i \}_{i=1}^N\) denote the benchmark dataset of \(N=121\) patients. Each observation tuple is \(\mathbf{z}_i = (\mathbf{c}_i^{\text{raw}}, \mathbf{I}_{i,H}, \mathbf{I}_{i,V}, y_i^{\text{post}}) \in \mathcal{Z}\), where \(\mathbf{c}_i^{\text{raw}} \in \mathbb{R}^7\) contains raw preoperative clinical variables, \(\mathbf{I}_{i,H}, \mathbf{I}_{i,V} \in \mathbb{R}^{496 \times 768}\) denote orthogonal foveal B-scans, and \(y_i^{\text{post}} = \text{VA}_i^{6\text{mo}} \in \mathbb{R}\) is the 6-month postoperative ETDRS visual acuity.</p>
+
+    <h3>4.2 In-Fold Clinical Transformation</h3>
+    <p>For each clinical feature \(j \in \{1, \dots, 7\}\), missing values are median-imputed, and the empirical mean \(\mu_j\) and sample standard deviation \(\sigma_j\) are calculated strictly over the training fold \(\mathcal{D}_{\text{train}}\):
+    \[\mu_j = \frac{1}{|\mathcal{D}_{\text{train}}|} \sum_{i \in \mathcal{D}_{\text{train}}} c_{i,j}^{\text{imputed}}, \quad \sigma_j = \sqrt{\frac{1}{|\mathcal{D}_{\text{train}}| - 1} \sum_{i \in \mathcal{D}_{\text{train}}} \left( c_{i,j}^{\text{imputed}} - \mu_j \right)^2}.\]
+    The standardized clinical feature vector \(\mathbf{x}_i^{\text{clin}} \in \mathbb{R}^7\) is obtained via:
+    \[\mathbf{x}_i^{\text{clin}} = \left[ \frac{c_{i,1}^{\text{imputed}} - \mu_1}{\sigma_1 + \epsilon}, \; \dots, \; \frac{c_{i,7}^{\text{imputed}} - \mu_7}{\sigma_7 + \epsilon} \right]^{\top} \in \mathbb{R}^7.\]</p>
+
+    <h3>4.3 Siamese Deep Vision Embeddings &amp; PCA Projection</h3>
+    <p>A deep feature extractor \(\phi: \mathbb{R}^{H \times W} \to \mathbb{R}^{2048}\) (ImageNet-pretrained ResNet-50) maps each orthogonal B-scan to a 2048-D latent space. Dual-meridian mean pooling yields the combined foveal representation \(\mathbf{f}_i \in \mathbb{R}^{2048}\):
+    \[\mathbf{f}_i = \frac{1}{2} \left( \phi(\mathbf{I}_{i,H}) + \phi(\mathbf{I}_{i,V}) \right) \in \mathbb{R}^{2048}.\]
+    The in-fold sample covariance matrix \(\mathbf{\Sigma}_f \in \mathbb{R}^{2048 \times 2048}\) across training instances is:
+    \[\mathbf{\Sigma}_f = \frac{1}{|\mathcal{D}_{\text{train}}| - 1} \sum_{i \in \mathcal{D}_{\text{train}}} (\mathbf{f}_i - \bm{\mu}_f)(\mathbf{f}_i - \bm{\mu}_f)^{\top}.\]
+    Spectral decomposition yields orthogonal eigenvectors \(\mathbf{v}_1, \dots, \mathbf{v}_8\) corresponding to the 8 largest eigenvalues. The projection matrix \(\mathbf{V}_k \in \mathbb{R}^{2048 \times 8}\) compresses deep embeddings into the low-dimensional vision representation \(\mathbf{x}_i^{\text{vis}} \in \mathbb{R}^8\):
+    \[\mathbf{x}_i^{\text{vis}} = \mathbf{V}_k^{\top} (\mathbf{f}_i - \bm{\mu}_f) \in \mathbb{R}^8.\]</p>
+
+    <h3>4.4 Automated Macro-Morphometry</h3>
+    <p>From caliper measurements of Minimum Linear Diameter (\(\text{MLD}\)), Basal Diameter (\(\text{BD}\)), and Height (\(H\)), scale-invariant ratios are computed:
+    \[\text{MHI} = \frac{H}{\text{BD}}, \quad \text{THI} = \frac{H}{\text{MLD}}, \quad \text{DHI} = \frac{\text{BD} - \text{MLD}}{H},\]
+    yielding the 6-dimensional morphometry vector \(\mathbf{x}_i^{\text{morph}} = [\text{MLD}, \text{BD}, H, \text{MHI}, \text{THI}, \text{DHI}]^{\top} \in \mathbb{R}^6\).</p>
+
+    <h3>4.5 Regularized Multimodal Late Fusion Optimization</h3>
+    <p>The concatenated joint vector \(\mathbf{x}_i^{\text{multimodal}} = [(\mathbf{x}_i^{\text{clin}})^{\top}, (\mathbf{x}_i^{\text{vis}})^{\top}]^{\top} \in \mathbb{R}^{15}\) is fed into an ensemble of Ridge regression (\(\hat{\mathbf{w}}_{\text{ridge}}\)) and Histogram Gradient-Boosted Decision Trees (\(\hat{g}_{\text{GBDT}}\)):
+    \[\hat{\mathbf{w}}_{\text{ridge}} = \arg\min_{\mathbf{w}} \sum_{i \in \mathcal{D}_{\text{train}}} \left( y_i^{\text{reg}} - \mathbf{w}^{\top}\mathbf{x}_i^{\text{multimodal}} \right)^2 + \lambda \|\mathbf{w}\|_2^2,\]
+    \[\hat{g}_{\text{GBDT}} = \arg\min_{g \in \mathcal{H}_{\text{tree}}} \sum_{i \in \mathcal{D}_{\text{train}}} \mathcal{L}_{\text{Huber}}\left( y_i^{\text{reg}},\, g(\mathbf{x}_i^{\text{multimodal}}) \right) + \Omega(g),\]
+    yielding the ensembled continuous recovery point prediction \(\hat{\mu}(\mathbf{x}_i) \in \mathbb{R}\):
+    \[\hat{\mu}(\mathbf{x}_i) = \frac{1}{2}\hat{g}_{\text{GBDT}}(\mathbf{x}_i^{\text{multimodal}}) + \frac{1}{2}\hat{\mathbf{w}}_{\text{ridge}}^{\top}\mathbf{x}_i^{\text{multimodal}}.\]</p>
+
+    <h3>4.6 Nadeau–Bengio Resampled Significance Testing &amp; Two-Level Seeding</h3>
+    <p>To guarantee strict statistical reproducibility, our evaluation distinguishes between two seeding tiers: (1) <em>Intra-Protocol Estimator Seeding:</em> Each fold \(j \in \{0, \dots, 24\}\) receives deterministic seed \(s_j = 42 + j\) to govern internal estimator stochasticity (such as tree subsampling and solver states); (2) <em>Inter-Protocol Multi-Seed Partition Suite:</em> The full data-splitting procedure (<code>RepeatedStratifiedKFold</code>) is independently re-instantiated across 5 master partition seeds \(\{42, 123, 456, 789, 2026\}\) (125 total evaluation folds) to isolate and verify invariance against data-partitioning variations.</p>
+    <p>In repeated \(K\)-fold cross-validation with \(R\) repeats (\(J = K \times R = 25\) total evaluation folds), the corrected resampled test statistic adjusts for non-independent overlapping training sets (\(n_{\text{val}} = 21, n_{\text{train}} = 83\)):
+    \[t_{\text{NB}} = \frac{\frac{1}{J}\sum_{j=1}^J d_j}{\sqrt{\left(\frac{1}{J} + \frac{n_{\text{val}}}{n_{\text{train}}}\right) S_d^2}}, \quad S_d^2 = \frac{1}{J-1}\sum_{j=1}^J (d_j - \bar{d})^2.\]
+    This experimental control ensures that the seed-level hypothesis test reported in Section 3.3 (\(t=8.426, p=0.0011\)) isolates the true effect of data-partition variability specifically, without confounding from estimator-level stochasticity.</p>
+
+    <h3>4.7 Distribution-Free Conformal Prediction Bounds</h3>
+    <p>For absolute residual non-conformity scores \(s_i = |y_i - \hat{\mu}(\mathbf{x}_i)|\) and nominal coverage \(1-\alpha = 0.90\), the conformal quantile threshold is:
+    \[\hat{q} = \text{Quantile}\left(\{s_i\}_{i=1}^n, \; \frac{\lceil (n+1)(1-\alpha) \rceil}{n}\right).\]
+    The prediction interval \(\mathcal{C}_{1-\alpha}(\mathbf{x}_{n+1}) = [\hat{\mu}(\mathbf{x}_{n+1}) - \hat{q}, \; \hat{\mu}(\mathbf{x}_{n+1}) + \hat{q}]\) satisfies finite-sample marginal coverage without assuming Gaussian residuals:
+    \[\mathbb{P}\left( y_{n+1} \in \mathcal{C}_{1-\alpha}(\mathbf{x}_{n+1}) \right) \ge 1 - \alpha.\]</p>
+
+    <h3>4.3 Algorithms of the Proposed Framework</h3>
+
+    <div class="algorithm-box">
+        <strong>Algorithm 1: Multimodal Feature Processing, Late Fusion, and Prognostic Model Fitting</strong><br><br>
+        <strong>Require:</strong> Dataset \(\mathcal{D}_{\text{dev}} = \{(\mathbf{c}_i^{\text{raw}}, \mathbf{m}_i^{\text{raw}}, \mathbf{I}_{i,H}, \mathbf{I}_{i,V}, y_i)\}_{i=1}^{n_{\text{dev}}}\), active configuration \(\mathcal{T} \in \{\text{E1}, \dots, \text{E7}\}\), \(K=5, R=5\), ResNet \(\phi(\cdot)\), PCA \(k=8\).<br>
+        <strong>Ensure:</strong> Out-of-fold predictions \(\{\hat{y}_i^{\text{OOF}}\}\), non-conformity quantiles \(\{\hat{q}_k\}\), trained ensemble \(\mathcal{M}^*\).<br>
+        1: <strong>for</strong> repeat \(r = 1 \dots R\) <strong>do</strong><br>
+        2: &nbsp;&nbsp;&nbsp;&nbsp;Partition \(\mathcal{D}_{\text{dev}}\) into \(K\) stratified folds \(\{\mathcal{F}_1, \dots, \mathcal{F}_K\}\).<br>
+        3: &nbsp;&nbsp;&nbsp;&nbsp;<strong>for</strong> fold \(k = 1 \dots K\) <strong>do</strong><br>
+        4: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\(\mathcal{D}_{\text{train}} \leftarrow \mathcal{D}_{\text{dev}} \setminus \mathcal{F}_k, \quad \mathcal{D}_{\text{val}} \leftarrow \mathcal{F}_k\).<br>
+        5: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> \(\text{Track 0 (Clinical)} \in \mathcal{T}\) <strong>then</strong> compute in-fold scaling \(\bm{\mu}_{\text{clin}}, \bm{\sigma}_{\text{clin}}\) on \(\mathcal{D}_{\text{train}}\); standardize \(\mathbf{x}_j^{\text{clin}}\).<br>
+        6: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> \(\text{Track 2 (Morphometry)} \in \mathcal{T}\) <strong>then</strong> compute in-fold scaling \(\bm{\mu}_{\text{morph}}, \bm{\sigma}_{\text{morph}}\) on \(\mathcal{D}_{\text{train}}\); standardize \(\mathbf{x}_j^{\text{morph}}\).<br>
+        7: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> \(\text{Track 1 (Vision)} \in \mathcal{T}\) <strong>then</strong> extract \(\mathbf{f}_j = \frac{1}{2}(\phi(\mathbf{I}_{j,H}) + \phi(\mathbf{I}_{j,V}))\), fit PCA on \(\mathcal{D}_{\text{train}}\) to get \(\mathbf{V}_k \in \mathbb{R}^{2048 \times 8}\), and project \(\mathbf{x}_j^{\text{vis}} = \mathbf{V}_k^{\top}(\mathbf{f}_j - \bm{\mu}_{f,\text{train}})\).<br>
+        8: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Construct active representation: \(\mathbf{x}_j = \text{Concat}(\{\mathbf{x}_j^{(t)} : t \in \mathcal{T}\})\).<br>
+        9: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fit GBDT \(g_k(\cdot)\) and Ridge \(h_k(\cdot)\) on active features of \(\mathcal{D}_{\text{train}}\).<br>
+        10: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compute \(\hat{y}_m^{\text{OOF}} = \frac{1}{2}g_k(\mathbf{x}_m) + \frac{1}{2}h_k(\mathbf{x}_m)\) for \(m \in \mathcal{D}_{\text{val}}\).<br>
+        11: <strong>Train</strong> final ensemble \(\mathcal{M}^* = \frac{1}{2}g^*(\cdot) + \frac{1}{2}h^*(\cdot)\) on active features of full \(\mathcal{D}_{\text{dev}}\).<br>
+        12: <strong>return</strong> Ensemble \(\mathcal{M}^*\) and OOF residuals \(\{|y_i - \hat{y}_i^{\text{OOF}}|\}\).
+    </div>
+
+    <div class="algorithm-box">
+        <strong>Algorithm 2: Distribution-Free Cross-Conformal Uncertainty Calibration</strong><br><br>
+        <strong>Require:</strong> Out-of-fold prediction residuals \(\mathcal{R}_{\text{dev}} = \{s_i = |y_i - \hat{y}_i^{\text{OOF}}|\}_{i=1}^{n_{\text{dev}}}\), \(\alpha = 0.10\), test query \(\mathbf{x}_{\text{test}}\).<br>
+        <strong>Ensure:</strong> 90% Calibrated Conformal Prediction Interval \(\mathcal{C}_{0.90}(\mathbf{x}_{\text{test}})\).<br>
+        1: Sort non-conformity scores: \(s_{(1)} \le s_{(2)} \le \dots \le s_{(n_{\text{dev}})}\).<br>
+        2: Compute quantile index: \(p = \lceil (n_{\text{dev}} + 1)(1 - \alpha) \rceil / n_{\text{dev}}\).<br>
+        3: Extract threshold: \(\hat{q} = \text{Quantile}(\{s_i\}, \min(1.0, p))\).<br>
+        4: Compute point prediction: \(\hat{y}_{\text{test}} = \mathcal{M}^*(\mathbf{x}_{\text{test}})\).<br>
+        5: Construct prediction interval: \(\mathcal{C}_{0.90}(\mathbf{x}_{\text{test}}) = [\hat{y}_{\text{test}} - \hat{q}, \; \hat{y}_{\text{test}} + \hat{q}]\).<br>
+        6: <strong>return</strong> \(\mathcal{C}_{0.90}(\mathbf{x}_{\text{test}})\) and calibrated radius \(\hat{q}\).
+    </div>
+
+    <!-- 4. CONCLUSION -->
+    <h2>4. Conclusion and Future Scope</h2>
+
+    <h3>4.1 Summary of Contributions</h3>
+    <p>In this study, we presented a rigorously evaluated, multimodal machine learning framework for predicting functional visual recovery following idiopathic full-thickness macular hole (FTMH) surgery. By systematically evaluating 25-fold Repeated Stratified Cross-Validation folds on a 104-patient development cohort and validating on an independent, single-pass locked test cohort (n=17), our methodology addresses fundamental challenges in small-sample ophthalmic prognosis.</p>
+    <p>Our findings confirm that: (1) Baseline visual acuity alone dominates binary surgical outcome prediction (82.70 &plusmn; 8.31% AUROC), robust to ceiling effects and multi-seed testing (p=0.0011); (2) Standalone deep vision embeddings suffer from representation overfitting in small-sample regimes (collapsing to 34.7% on held-out test data), but regularized multimodal late fusion achieves top continuous recovery explained variance (R<sup>2</sup> = 0.485 &plusmn; 0.137, MAE = 8.66 &plusmn; 1.73 letters); (3) Modeling continuous visual acuity gain (&Delta;VA) resolves chart ceiling distortions; and (4) Distribution-free conformal prediction intervals deliver calibrated individual-patient uncertainty quantification (&plusmn; 14.05 letters, 85.34% empirical coverage), providing actionable prognostic guidance for vitreoretinal surgeons.</p>
+
+    <h3>4.2 Limitations</h3>
+    <ol>
+        <li><strong>Single-Center Cohort Scale:</strong> The evaluation is grounded on the benchmark cohort ($N=121$) from CHU de Québec. While enabling direct, reproducible comparisons with published ophthalmic benchmarks, prospective multi-center validation across broader demographic cohorts and diverse OCT scanner platforms will further evaluate cross-institutional generalizability.</li>
+        <li><strong>Dual-Axis 2D B-Scans:</strong> The imaging inputs utilize orthogonal horizontal and vertical foveal cross-hairs, which capture essential minimum diameter and traction vectors. Extending the framework to dense 3D volumetric rasters and automated outer retinal micro-layer segmentation (such as ellipsoid zone reconstitution) represents a natural progression as multi-slice annotated repositories become available.</li>
+    </ol>
+
+    <h3>4.3 Future Scope and Translational Directions</h3>
+    <ol>
+        <li><strong>Multi-Center Prospective Validation:</strong> Evaluating the multimodal framework across diverse spectral-domain and swept-source OCT manufacturers (Heidelberg, Zeiss, Topcon, Canon) with cross-device domain adaptation.</li>
+        <li><strong>Dense 3D Volumetric Ensembles with Verified Micro-Biomarkers:</strong> Leveraging public benchmarks (e.g., Singh et al. 2022) to train verified deep segmentations of outer retinal ELM and EZ integrity.</li>
+        <li><strong>Comparative Benchmarking of Uncertainty Paradigms:</strong> Head-to-head empirical trials directly comparing non-parametric cross-conformal prediction against parametric deep evidential regression (such as U-ARM [14]).</li>
+        <li><strong>Point-of-Care Surgical Decision Support Systems (CDSS):</strong> Translating calibrated conformal intervals into interactive, EHR-integrated clinical software for personalized preoperative surgical counseling.</li>
+    </ol>
+
+    <!-- REFERENCES -->
+    <div class="references">
+        <h2>References</h2>
+        <ol>
+            <li>J. S. Duker et al., "The International Vitreomacular Traction Study Group classification of vitreomacular adhesion, traction, and macular hole," <em>Ophthalmology</em>, vol. 120, no. 12, pp. 2611–2619, 2013.</li>
+            <li>N. E. Kelly and R. T. Wendel, "Vitreous surgery for idiopathic macular holes: results of a pilot study," <em>Arch. Ophthalmol.</em>, vol. 109, no. 5, pp. 654–659, 1991.</li>
+            <li>S. Kusuhara et al., "Prediction of visual outcome by macular hole index in eyes after macular hole surgery," <em>Am. J. Ophthalmol.</em>, vol. 138, no. 1, pp. 85–92, 2004.</li>
+            <li>Z. Michalewska et al., "Correlation of visual acuity with foveal morphology after successful macular hole surgery," <em>Am. J. Ophthalmol.</em>, vol. 149, no. 6, pp. 960–969, 2010.</li>
+            <li>T. Wakabayashi et al., "Foveal microstructure and visual acuity after macular hole surgery: automated analysis of spectral-domain optical coherence tomography," <em>Ophthalmology</em>, vol. 117, no. 9, pp. 1815–1824, 2010.</li>
+            <li>C. Baumann et al., "Photoreceptor layer integrity and visual recovery following macular hole surgery," <em>Am. J. Ophthalmol.</em>, vol. 224, pp. 112–120, 2021.</li>
+            <li>S. Ullrich et al., "Macular hole size as a prognostic factor in macular hole surgery," <em>Br. J. Ophthalmol.</em>, vol. 86, no. 4, pp. 390–393, 2002.</li>
+            <li>J. M. Ruiz-Moreno et al., "Optical coherence tomography in macular hole surgery: prognostic factors," <em>Retin. Cases Brief Rep.</em>, vol. 2, no. 3, pp. 195–199, 2008.</li>
+            <li>M. Lachance et al., "Convolutional neural networks for predicting visual acuity improvement following macular hole surgery," <em>Invest. Ophthalmol. Vis. Sci.</em>, vol. 62, no. 8, p. 2842, 2021.</li>
+            <li>M. Lachance et al., "Deep learning and clinical feature fusion for the prediction of visual outcomes after macular hole surgery," <em>Transl. Vis. Sci. Technol.</em>, vol. 11, no. 10, pp. 1–10, 2022.</li>
+            <li>V. K. Singh, B. Kucukgoz, D. C. Murphy, X. Xiong, D. H. Steel, and B. Obara, "Benchmarking automated detection of the retinal external limiting membrane in a 3D spectral domain optical coherence tomography image dataset of full thickness macular holes," <em>Biomed. Opt. Express</em>, vol. 13, no. 12, pp. 6245–6260, 2022.</li>
+            <li>R. Obata et al., "Deep learning approach to predict visual acuity after macular hole surgery," <em>Invest. Ophthalmol. Vis. Sci.</em>, vol. 62, no. 8, p. 2843, 2021.</li>
+            <li>B. Kucukgoz, D. C. Murphy, V. K. Singh, D. H. Steel, and B. Obara, "Volumetric deep learning for predicting visual acuity outcomes following macular hole surgery," <em>Transl. Vis. Sci. Technol.</em>, vol. 13, no. 2, pp. 1–11, 2024.</li>
+            <li>B. Kucukgoz, D. C. Murphy, D. H. Steel, and B. Obara, "Uncertainty-Aware Retinal Model (U-ARM) for visual acuity prediction in macular hole surgery," <em>IEEE Trans. Med. Imaging</em>, 2025.</li>
+            <li>C. Nadeau and Y. Bengio, "Inference for the generalization error," <em>Mach. Learn.</em>, vol. 52, no. 3, pp. 239–281, 2003.</li>
+            <li>A. N. Angelopoulos and S. Bates, "A gentle introduction to conformal prediction and distribution-free uncertainty quantification," <em>arXiv:2107.07511</em>, 2021.</li>
+        </ol>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Model Configuration,Test AUROC (%),Test F1 (%),Test Accuracy (%),Test Brier Loss,Test MAE (letters),Test RMSE (letters),Test R² Score,Conformal q_hat,Test 90% PICP (%)
+E1: Baseline VA only,80.6,75.0,76.5,0.1722,9.23,12.4,0.615,15.99,14/17 (82.4%)
+E2: Clinical Only (7 features),79.2,75.0,76.5,0.1659,10.16,13.51,0.542,14.28,12/17 (70.6%)
+E3: Vision Embeddings Only,34.7,16.7,41.2,0.3031,16.64,21.86,-0.198,22.36,13/17 (76.5%)
+E4: Morphometry Only,54.2,52.6,47.1,0.2595,15.07,20.39,-0.042,24.64,13/17 (76.5%)
+E5: Clinical + Morphometry,79.2,75.0,76.5,0.1759,10.35,13.62,0.535,14.17,12/17 (70.6%)
+E6: Clinical + Vision Embeddings,76.4,70.6,70.6,0.1799,10.19,13.3,0.557,14.76,13/17 (76.5%)
+E7: Full Multimodal Fusion,75.0,70.6,70.6,0.1918,10.41,13.41,0.549,14.16,12/17 (70.6%)

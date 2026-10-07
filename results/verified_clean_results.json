@@ -1,0 +1,345 @@
+{
+  "cv_results": [
+    {
+      "Model Track": "E1: Baseline VA Only",
+      "CV AUROC (%)": "82.70 \u00b1 8.31",
+      "CV F1 (%)": "69.67 \u00b1 9.08",
+      "CV R\u00b2": "0.476 \u00b1 0.128",
+      "CV MAE (letters)": "8.73 \u00b1 1.45",
+      "OOF Conformal PICP (%)": "88.82 \u00b1 8.11",
+      "Conformal Radius (q_hat)": "\u00b116.03 \u00b1 0.86"
+    },
+    {
+      "Model Track": "E2: Full Clinical Baseline (7 features)",
+      "CV AUROC (%)": "80.70 \u00b1 9.97",
+      "CV F1 (%)": "66.64 \u00b1 13.34",
+      "CV R\u00b2": "0.478 \u00b1 0.138",
+      "CV MAE (letters)": "8.75 \u00b1 1.52",
+      "OOF Conformal PICP (%)": "85.17 \u00b1 7.92",
+      "Conformal Radius (q_hat)": "\u00b114.11 \u00b1 1.01"
+    },
+    {
+      "Model Track": "E3: Retinal Vision Embeddings (PCA-8)",
+      "CV AUROC (%)": "59.47 \u00b1 9.02",
+      "CV F1 (%)": "52.22 \u00b1 10.83",
+      "CV R\u00b2": "-0.001 \u00b1 0.141",
+      "CV MAE (letters)": "11.51 \u00b1 2.10",
+      "OOF Conformal PICP (%)": "86.89 \u00b1 8.38",
+      "Conformal Radius (q_hat)": "\u00b122.53 \u00b1 1.30"
+    },
+    {
+      "Model Track": "E4: Macro Morphometry (MLD, Base, Height, MHI, THI)",
+      "CV AUROC (%)": "61.11 \u00b1 9.02",
+      "CV F1 (%)": "58.20 \u00b1 6.45",
+      "CV R\u00b2": "-0.229 \u00b1 0.575",
+      "CV MAE (letters)": "12.27 \u00b1 2.44",
+      "OOF Conformal PICP (%)": "85.16 \u00b1 8.64",
+      "Conformal Radius (q_hat)": "\u00b122.67 \u00b1 2.37"
+    },
+    {
+      "Model Track": "E5: Clinical + Morphometry Fusion",
+      "CV AUROC (%)": "80.95 \u00b1 9.35",
+      "CV F1 (%)": "69.87 \u00b1 9.16",
+      "CV R\u00b2": "0.414 \u00b1 0.176",
+      "CV MAE (letters)": "9.21 \u00b1 1.80",
+      "OOF Conformal PICP (%)": "83.65 \u00b1 8.88",
+      "Conformal Radius (q_hat)": "\u00b113.78 \u00b1 0.98"
+    },
+    {
+      "Model Track": "E6: Clinical + Vision Fusion (Multimodal)",
+      "CV AUROC (%)": "79.33 \u00b1 8.85",
+      "CV F1 (%)": "70.24 \u00b1 12.15",
+      "CV R\u00b2": "0.485 \u00b1 0.137",
+      "CV MAE (letters)": "8.66 \u00b1 1.73",
+      "OOF Conformal PICP (%)": "85.34 \u00b1 8.48",
+      "Conformal Radius (q_hat)": "\u00b114.05 \u00b1 1.24"
+    },
+    {
+      "Model Track": "E7: Full Multimodal Fusion (Clin + Morph + Vision)",
+      "CV AUROC (%)": "80.29 \u00b1 7.96",
+      "CV F1 (%)": "71.41 \u00b1 10.25",
+      "CV R\u00b2": "0.438 \u00b1 0.152",
+      "CV MAE (letters)": "8.97 \u00b1 1.95",
+      "OOF Conformal PICP (%)": "83.61 \u00b1 9.30",
+      "Conformal Radius (q_hat)": "\u00b113.61 \u00b1 1.15"
+    }
+  ],
+  "test_results": [
+    {
+      "Model Track": "E1: Baseline VA Only",
+      "Test AUROC (%)": 80.6,
+      "Test Acc (%)": 76.5,
+      "Test R\u00b2": 0.615,
+      "Test MAE (let)": 9.23,
+      "Test RMSE (let)": 12.4,
+      "Dev q_hat": 15.99,
+      "Test Coverage (N=17)": "14/17 (82.4%)"
+    },
+    {
+      "Model Track": "E2: Full Clinical Baseline (7 features)",
+      "Test AUROC (%)": 79.2,
+      "Test Acc (%)": 76.5,
+      "Test R\u00b2": 0.542,
+      "Test MAE (let)": 10.16,
+      "Test RMSE (let)": 13.51,
+      "Dev q_hat": 14.28,
+      "Test Coverage (N=17)": "12/17 (70.6%)"
+    },
+    {
+      "Model Track": "E3: Retinal Vision Embeddings (PCA-8)",
+      "Test AUROC (%)": 34.7,
+      "Test Acc (%)": 41.2,
+      "Test R\u00b2": -0.198,
+      "Test MAE (let)": 16.64,
+      "Test RMSE (let)": 21.86,
+      "Dev q_hat": 22.36,
+      "Test Coverage (N=17)": "13/17 (76.5%)"
+    },
+    {
+      "Model Track": "E4: Macro Morphometry (MLD, Base, Height, MHI, THI)",
+      "Test AUROC (%)": 54.2,
+      "Test Acc (%)": 47.1,
+      "Test R\u00b2": -0.042,
+      "Test MAE (let)": 15.07,
+      "Test RMSE (let)": 20.39,
+      "Dev q_hat": 24.64,
+      "Test Coverage (N=17)": "13/17 (76.5%)"
+    },
+    {
+      "Model Track": "E5: Clinical + Morphometry Fusion",
+      "Test AUROC (%)": 79.2,
+      "Test Acc (%)": 76.5,
+      "Test R\u00b2": 0.535,
+      "Test MAE (let)": 10.35,
+      "Test RMSE (let)": 13.62,
+      "Dev q_hat": 14.17,
+      "Test Coverage (N=17)": "12/17 (70.6%)"
+    },
+    {
+      "Model Track": "E6: Clinical + Vision Fusion (Multimodal)",
+      "Test AUROC (%)": 76.4,
+      "Test Acc (%)": 70.6,
+      "Test R\u00b2": 0.557,
+      "Test MAE (let)": 10.19,
+      "Test RMSE (let)": 13.3,
+      "Dev q_hat": 14.76,
+      "Test Coverage (N=17)": "13/17 (76.5%)"
+    },
+    {
+      "Model Track": "E7: Full Multimodal Fusion (Clin + Morph + Vision)",
+      "Test AUROC (%)": 75.0,
+      "Test Acc (%)": 70.6,
+      "Test R\u00b2": 0.549,
+      "Test MAE (let)": 10.41,
+      "Test RMSE (let)": 13.41,
+      "Dev q_hat": 14.16,
+      "Test Coverage (N=17)": "12/17 (70.6%)"
+    }
+  ],
+  "e6_patient_breakdown": [
+    {
+      "id": 104,
+      "actual_gain": 71.0,
+      "pred_gain": 41.77150258645507,
+      "lower_bound_90": 27.016453921021583,
+      "upper_bound_90": 56.52655125188856,
+      "is_covered": false,
+      "residual": 29.22849741354493,
+      "actual_binary": 1,
+      "pred_prob": 0.8142422197203831,
+      "pred_binary": 1
+    },
+    {
+      "id": 105,
+      "actual_gain": 37.0,
+      "pred_gain": 21.318365481865097,
+      "lower_bound_90": 6.563316816431609,
+      "upper_bound_90": 36.073414147298585,
+      "is_covered": false,
+      "residual": 15.681634518134903,
+      "actual_binary": 1,
+      "pred_prob": 0.6479970500750559,
+      "pred_binary": 1
+    },
+    {
+      "id": 106,
+      "actual_gain": 33.0,
+      "pred_gain": 18.780984004510287,
+      "lower_bound_90": 4.025935339076799,
+      "upper_bound_90": 33.53603266994378,
+      "is_covered": true,
+      "residual": 14.219015995489713,
+      "actual_binary": 1,
+      "pred_prob": 0.587470307619606,
+      "pred_binary": 1
+    },
+    {
+      "id": 107,
+      "actual_gain": 24.0,
+      "pred_gain": 15.207027378446803,
+      "lower_bound_90": 0.4519787130133146,
+      "upper_bound_90": 29.96207604388029,
+      "is_covered": true,
+      "residual": 8.792972621553197,
+      "actual_binary": 1,
+      "pred_prob": 0.5329069990555779,
+      "pred_binary": 1
+    },
+    {
+      "id": 108,
+      "actual_gain": 20.0,
+      "pred_gain": 13.80175574111507,
+      "lower_bound_90": -0.9532929243184185,
+      "upper_bound_90": 28.556804406548558,
+      "is_covered": true,
+      "residual": 6.19824425888493,
+      "actual_binary": 1,
+      "pred_prob": 0.4000647208030623,
+      "pred_binary": 0
+    },
+    {
+      "id": 109,
+      "actual_gain": 6.0,
+      "pred_gain": -0.2214107212522114,
+      "lower_bound_90": -14.9764593866857,
+      "upper_bound_90": 14.533637944181276,
+      "is_covered": true,
+      "residual": 6.221410721252211,
+      "actual_binary": 0,
+      "pred_prob": 0.11156403722456378,
+      "pred_binary": 0
+    },
+    {
+      "id": 110,
+      "actual_gain": 1.0,
+      "pred_gain": 24.42190485773581,
+      "lower_bound_90": 9.666856192302323,
+      "upper_bound_90": 39.1769535231693,
+      "is_covered": false,
+      "residual": 23.42190485773581,
+      "actual_binary": 0,
+      "pred_prob": 0.7586615187968477,
+      "pred_binary": 1
+    },
+    {
+      "id": 111,
+      "actual_gain": 4.0,
+      "pred_gain": 9.432029769739998,
+      "lower_bound_90": -5.32301889569349,
+      "upper_bound_90": 24.187078435173486,
+      "is_covered": true,
+      "residual": 5.432029769739998,
+      "actual_binary": 0,
+      "pred_prob": 0.5335886313750011,
+      "pred_binary": 1
+    },
+    {
+      "id": 112,
+      "actual_gain": -6.0,
+      "pred_gain": 7.178509403876865,
+      "lower_bound_90": -7.576539261556623,
+      "upper_bound_90": 21.933558069310354,
+      "is_covered": true,
+      "residual": 13.178509403876866,
+      "actual_binary": 0,
+      "pred_prob": 0.28093915571642447,
+      "pred_binary": 0
+    },
+    {
+      "id": 113,
+      "actual_gain": 11.0,
+      "pred_gain": 22.43938593274268,
+      "lower_bound_90": 7.684337267309193,
+      "upper_bound_90": 37.19443459817617,
+      "is_covered": true,
+      "residual": 11.439385932742681,
+      "actual_binary": 0,
+      "pred_prob": 0.7243815645514827,
+      "pred_binary": 1
+    },
+    {
+      "id": 114,
+      "actual_gain": -20.0,
+      "pred_gain": 4.608229235064684,
+      "lower_bound_90": -10.146819430368804,
+      "upper_bound_90": 19.363277900498172,
+      "is_covered": false,
+      "residual": 24.608229235064684,
+      "actual_binary": 0,
+      "pred_prob": 0.31875041455107644,
+      "pred_binary": 0
+    },
+    {
+      "id": 115,
+      "actual_gain": 7.0,
+      "pred_gain": 4.347317273165033,
+      "lower_bound_90": -10.407731392268456,
+      "upper_bound_90": 19.10236593859852,
+      "is_covered": true,
+      "residual": 2.652682726834967,
+      "actual_binary": 0,
+      "pred_prob": 0.12890506890222725,
+      "pred_binary": 0
+    },
+    {
+      "id": 116,
+      "actual_gain": 9.0,
+      "pred_gain": 7.726227630536094,
+      "lower_bound_90": -7.028821034897394,
+      "upper_bound_90": 22.481276295969582,
+      "is_covered": true,
+      "residual": 1.2737723694639058,
+      "actual_binary": 0,
+      "pred_prob": 0.17806152859004823,
+      "pred_binary": 0
+    },
+    {
+      "id": 117,
+      "actual_gain": -5.0,
+      "pred_gain": -1.0412773081751472,
+      "lower_bound_90": -15.796325973608635,
+      "upper_bound_90": 13.713771357258342,
+      "is_covered": true,
+      "residual": 3.958722691824853,
+      "actual_binary": 0,
+      "pred_prob": 0.1401540336478234,
+      "pred_binary": 0
+    },
+    {
+      "id": 118,
+      "actual_gain": 20.0,
+      "pred_gain": 13.805951997059243,
+      "lower_bound_90": -0.9490966683742457,
+      "upper_bound_90": 28.56100066249273,
+      "is_covered": true,
+      "residual": 6.194048002940757,
+      "actual_binary": 1,
+      "pred_prob": 0.44002751201738866,
+      "pred_binary": 0
+    },
+    {
+      "id": 119,
+      "actual_gain": 23.0,
+      "pred_gain": 22.56286735859791,
+      "lower_bound_90": 7.807818693164421,
+      "upper_bound_90": 37.3179160240314,
+      "is_covered": true,
+      "residual": 0.4371326414020906,
+      "actual_binary": 1,
+      "pred_prob": 0.7153614268300192,
+      "pred_binary": 1
+    },
+    {
+      "id": 120,
+      "actual_gain": 23.0,
+      "pred_gain": 22.78360362039863,
+      "lower_bound_90": 8.028554954965141,
+      "upper_bound_90": 37.538652285832114,
+      "is_covered": true,
+      "residual": 0.21639637960137037,
+      "actual_binary": 1,
+      "pred_prob": 0.6674121800683785,
+      "pred_binary": 1
+    }
+  ]
+}

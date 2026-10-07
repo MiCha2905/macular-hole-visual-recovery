@@ -1,0 +1,8 @@
+Model Track,CV AUROC (%),CV F1 (%),CV R²,CV MAE (letters),OOF Conformal PICP (%),Conformal Radius (q_hat)
+E1: Baseline VA Only,82.70 ± 8.31,69.67 ± 9.08,0.476 ± 0.128,8.73 ± 1.45,88.82 ± 8.11,±16.03 ± 0.86
+E2: Full Clinical Baseline (7 features),80.70 ± 9.97,66.64 ± 13.34,0.478 ± 0.138,8.75 ± 1.52,85.17 ± 7.92,±14.11 ± 1.01
+E3: Retinal Vision Embeddings (PCA-8),59.47 ± 9.02,52.22 ± 10.83,-0.001 ± 0.141,11.51 ± 2.10,86.89 ± 8.38,±22.53 ± 1.30
+"E4: Macro Morphometry (MLD, Base, Height, MHI, THI)",61.11 ± 9.02,58.20 ± 6.45,-0.229 ± 0.575,12.27 ± 2.44,85.16 ± 8.64,±22.67 ± 2.37
+E5: Clinical + Morphometry Fusion,80.95 ± 9.35,69.87 ± 9.16,0.414 ± 0.176,9.21 ± 1.80,83.65 ± 8.88,±13.78 ± 0.98
+E6: Clinical + Vision Fusion (Multimodal),79.33 ± 8.85,70.24 ± 12.15,0.485 ± 0.137,8.66 ± 1.73,85.34 ± 8.48,±14.05 ± 1.24
+E7: Full Multimodal Fusion (Clin + Morph + Vision),80.29 ± 7.96,71.41 ± 10.25,0.438 ± 0.152,8.97 ± 1.95,83.61 ± 9.30,±13.61 ± 1.15

@@ -1,0 +1,8 @@
+Model Track,Test AUROC (%),Test Acc (%),Test R²,Test MAE (let),Test RMSE (let),Dev q_hat,Test Coverage (N=17)
+E1: Baseline VA Only,80.6,76.5,0.615,9.23,12.4,15.99,14/17 (82.4%)
+E2: Full Clinical Baseline (7 features),79.2,76.5,0.542,10.16,13.51,14.28,12/17 (70.6%)
+E3: Retinal Vision Embeddings (PCA-8),34.7,41.2,-0.198,16.64,21.86,22.36,13/17 (76.5%)
+"E4: Macro Morphometry (MLD, Base, Height, MHI, THI)",54.2,47.1,-0.042,15.07,20.39,24.64,13/17 (76.5%)
+E5: Clinical + Morphometry Fusion,79.2,76.5,0.535,10.35,13.62,14.17,12/17 (70.6%)
+E6: Clinical + Vision Fusion (Multimodal),76.4,70.6,0.557,10.19,13.3,14.76,13/17 (76.5%)
+E7: Full Multimodal Fusion (Clin + Morph + Vision),75.0,70.6,0.549,10.41,13.41,14.16,12/17 (70.6%)

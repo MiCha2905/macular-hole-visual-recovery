@@ -1,0 +1,172 @@
+{
+  "n_ceiling_total": 4,
+  "e1_all_seed42": 82.7,
+  "e2_all_seed42": 80.70181818181817,
+  "gap_all_seed42": 1.998181818181818,
+  "e1_nc_seed42": 81.55762626262626,
+  "e2_nc_seed42": 79.3961616161616,
+  "gap_nc_seed42": 2.1614646464646463,
+  "seed_sensitivity": [
+    {
+      "Random_Seed": 42,
+      "E1_AUROC (%)": 82.7,
+      "E2_AUROC (%)": 80.7,
+      "AUROC_Gap (E1 - E2)": 2.0,
+      "E1_MAE (letters)": 8.73,
+      "E2_MAE (letters)": 8.75
+    },
+    {
+      "Random_Seed": 123,
+      "E1_AUROC (%)": 82.11,
+      "E2_AUROC (%)": 78.17,
+      "AUROC_Gap (E1 - E2)": 3.93,
+      "E1_MAE (letters)": 8.63,
+      "E2_MAE (letters)": 8.79
+    },
+    {
+      "Random_Seed": 456,
+      "E1_AUROC (%)": 83.47,
+      "E2_AUROC (%)": 80.13,
+      "AUROC_Gap (E1 - E2)": 3.34,
+      "E1_MAE (letters)": 8.65,
+      "E2_MAE (letters)": 8.75
+    },
+    {
+      "Random_Seed": 789,
+      "E1_AUROC (%)": 82.82,
+      "E2_AUROC (%)": 78.57,
+      "AUROC_Gap (E1 - E2)": 4.25,
+      "E1_MAE (letters)": 8.69,
+      "E2_MAE (letters)": 8.7
+    },
+    {
+      "Random_Seed": 2026,
+      "E1_AUROC (%)": 82.48,
+      "E2_AUROC (%)": 78.25,
+      "AUROC_Gap (E1 - E2)": 4.23,
+      "E1_MAE (letters)": 8.71,
+      "E2_MAE (letters)": 8.77
+    }
+  ],
+  "test_proximity": [
+    {
+      "test_id": 104,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": -0.06499999761581421,
+      "mean_sim_to_dev_neg": -0.03200000151991844,
+      "relative_pos_affinity": -0.032999999821186066
+    },
+    {
+      "test_id": 105,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": 0.052000001072883606,
+      "mean_sim_to_dev_neg": 0.1720000058412552,
+      "relative_pos_affinity": -0.11999999731779099
+    },
+    {
+      "test_id": 106,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": -0.003000000026077032,
+      "mean_sim_to_dev_neg": 0.19200000166893005,
+      "relative_pos_affinity": -0.1940000057220459
+    },
+    {
+      "test_id": 107,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": -0.09700000286102295,
+      "mean_sim_to_dev_neg": -0.0949999988079071,
+      "relative_pos_affinity": -0.0020000000949949026
+    },
+    {
+      "test_id": 108,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": -0.027000000700354576,
+      "mean_sim_to_dev_neg": -0.05700000002980232,
+      "relative_pos_affinity": 0.029999999329447746
+    },
+    {
+      "test_id": 109,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": -0.05000000074505806,
+      "mean_sim_to_dev_neg": -0.0020000000949949026,
+      "relative_pos_affinity": -0.04800000041723251
+    },
+    {
+      "test_id": 110,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.0560000017285347,
+      "mean_sim_to_dev_neg": 0.16300000250339508,
+      "relative_pos_affinity": -0.10599999874830246
+    },
+    {
+      "test_id": 111,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.05700000002980232,
+      "mean_sim_to_dev_neg": -0.039000000804662704,
+      "relative_pos_affinity": 0.09600000083446503
+    },
+    {
+      "test_id": 112,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.0689999982714653,
+      "mean_sim_to_dev_neg": 0.07999999821186066,
+      "relative_pos_affinity": -0.010999999940395355
+    },
+    {
+      "test_id": 113,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": -0.06499999761581421,
+      "mean_sim_to_dev_neg": -0.0430000014603138,
+      "relative_pos_affinity": -0.02199999988079071
+    },
+    {
+      "test_id": 114,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.004000000189989805,
+      "mean_sim_to_dev_neg": -0.09799999743700027,
+      "relative_pos_affinity": 0.10199999809265137
+    },
+    {
+      "test_id": 115,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.04699999839067459,
+      "mean_sim_to_dev_neg": 0.1340000033378601,
+      "relative_pos_affinity": -0.08699999749660492
+    },
+    {
+      "test_id": 116,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": 0.003000000026077032,
+      "mean_sim_to_dev_neg": 0.13099999725818634,
+      "relative_pos_affinity": -0.12800000607967377
+    },
+    {
+      "test_id": 117,
+      "y_true": 0,
+      "mean_sim_to_dev_pos": -0.0820000022649765,
+      "mean_sim_to_dev_neg": 0.029999999329447746,
+      "relative_pos_affinity": -0.1120000034570694
+    },
+    {
+      "test_id": 118,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": -0.08299999684095383,
+      "mean_sim_to_dev_neg": 0.0010000000474974513,
+      "relative_pos_affinity": -0.08399999886751175
+    },
+    {
+      "test_id": 119,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": 0.06800000369548798,
+      "mean_sim_to_dev_neg": 0.09399999678134918,
+      "relative_pos_affinity": -0.026000000536441803
+    },
+    {
+      "test_id": 120,
+      "y_true": 1,
+      "mean_sim_to_dev_pos": 0.03500000014901161,
+      "mean_sim_to_dev_neg": 0.18700000643730164,
+      "relative_pos_affinity": -0.1509999930858612
+    }
+  ]
+}

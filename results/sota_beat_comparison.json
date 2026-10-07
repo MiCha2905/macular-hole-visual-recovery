@@ -1,0 +1,125 @@
+{
+  "cv_summary": [
+    {
+      "track": "1. Baseline VA Only",
+      "auroc_mean": 0.8237636363636364,
+      "auroc_sd": 0.08264056594975538,
+      "qwk_mean": 0.5102071627613386,
+      "qwk_sd": 0.12815533897914305,
+      "mae_mean": 8.565205159910816,
+      "mae_sd": 1.2940176477198957
+    },
+    {
+      "track": "2. Clinical 7 Features (L1 C=0.2)",
+      "auroc_mean": 0.8184,
+      "auroc_sd": 0.09144768815788339,
+      "qwk_mean": 0.3621132807125966,
+      "qwk_sd": 0.16744598165827176,
+      "mae_mean": 8.734543461384133,
+      "mae_sd": 1.521066133666165
+    },
+    {
+      "track": "3. Previous SOTA Benchmark (TVST 2022 Ref: 81.9%)",
+      "auroc_mean": 0.819,
+      "auroc_sd": 0.052,
+      "qwk_mean": NaN,
+      "mae_mean": NaN
+    },
+    {
+      "track": "4. Retinal SSL Vision Only (PCA-8)",
+      "auroc_mean": 0.6074181818181819,
+      "auroc_sd": 0.09351065878168714,
+      "qwk_mean": 0.11412265393443839,
+      "qwk_sd": 0.18554493031605482,
+      "mae_mean": 12.644016914367675,
+      "mae_sd": 2.1135024247674856
+    },
+    {
+      "track": "5. EZ/ELM Layer Integrity Only",
+      "auroc_mean": 0.6823999999999999,
+      "auroc_sd": 0.10617866745014089,
+      "qwk_mean": 0.05514300637838612,
+      "qwk_sd": 0.1294259643976108,
+      "mae_mean": 11.44311723154573,
+      "mae_sd": 2.3957265416902978
+    },
+    {
+      "track": "6. Clinical + Retinal SSL Vision",
+      "auroc_mean": 0.8007636363636363,
+      "auroc_sd": 0.0798008595823544,
+      "qwk_mean": 0.38697088976871863,
+      "qwk_sd": 0.13290856878891635,
+      "mae_mean": 9.245812252017904,
+      "mae_sd": 1.3207149809533933
+    },
+    {
+      "track": "7. Clinical + EZ/ELM Layer Integrity",
+      "auroc_mean": 0.8070181818181819,
+      "auroc_sd": 0.08066357847605068,
+      "qwk_mean": 0.4119477011617828,
+      "qwk_sd": 0.171318291529933,
+      "mae_mean": 9.016586027179553,
+      "mae_sd": 1.4525834318538386
+    },
+    {
+      "track": "8. Full Next-Gen Fusion (Clin + EZ/ELM + Retinal SSL, L1 C=0.5)",
+      "auroc_mean": 0.7829090909090908,
+      "auroc_sd": 0.08911799217288069,
+      "qwk_mean": 0.3928903766318104,
+      "qwk_sd": 0.16147256528651827,
+      "mae_mean": 9.559937171408762,
+      "mae_sd": 1.3066775569788016
+    }
+  ],
+  "test_summary": [
+    {
+      "track": "1. Baseline VA Only",
+      "test_auroc": 0.8055555555555556,
+      "test_qwk": 0.6402116402116402,
+      "exact_acc": 0.7058823529411765,
+      "adj_acc": 0.9411764705882353
+    },
+    {
+      "track": "2. Clinical 7 Features (L1 C=0.2)",
+      "test_auroc": 0.8194444444444445,
+      "test_qwk": 0.6843501326259948,
+      "exact_acc": 0.7647058823529411,
+      "adj_acc": 0.9411764705882353
+    },
+    {
+      "track": "3. Published SOTA Benchmark (TVST 2022 Ref)",
+      "test_auroc": 0.819,
+      "test_qwk": NaN,
+      "exact_acc": NaN,
+      "adj_acc": NaN
+    },
+    {
+      "track": "4. Retinal SSL Vision Only",
+      "test_auroc": 0.36111111111111116,
+      "test_qwk": -0.13333333333333353,
+      "exact_acc": 0.4117647058823529,
+      "adj_acc": 0.7058823529411765
+    },
+    {
+      "track": "5. EZ/ELM Layer Integrity Only",
+      "test_auroc": 0.33333333333333337,
+      "test_qwk": -0.25503355704697994,
+      "exact_acc": 0.23529411764705882,
+      "adj_acc": 0.8235294117647058
+    },
+    {
+      "track": "6. Clinical + Retinal SSL Vision",
+      "test_auroc": 0.8055555555555556,
+      "test_qwk": 0.6277372262773723,
+      "exact_acc": 0.8235294117647058,
+      "adj_acc": 0.8823529411764706
+    },
+    {
+      "track": "7. Full Next-Gen Fusion (Clin + EZ/ELM + Retinal SSL)",
+      "test_auroc": 0.7916666666666666,
+      "test_qwk": 0.3774647887323944,
+      "exact_acc": 0.5882352941176471,
+      "adj_acc": 0.8823529411764706
+    }
+  ]
+}
