@@ -699,9 +699,10 @@ Our experimental findings yield four primary conclusions:
 \end{enumerate}
 
 \subsection{Limitations}
-While this study establishes a leak-free, rigorously benchmarked prognostic framework, two primary limitations are noted:
+While this study establishes a leak-free, rigorously benchmarked prognostic framework, three primary limitations are noted:
 \begin{enumerate}
-    \item \textbf{Single-Center Cohort Scale:} The evaluation is grounded on the benchmark cohort ($N=121$) from CHU de Qu\'{e}bec. While this enables direct, reproducible comparisons with published ophthalmic benchmarks on this repository, prospective multi-center validation across broader demographic cohorts and diverse OCT scanner platforms will further evaluate cross-institutional generalizability.
+    \item \textbf{Single-Center Training Cohort Scale ($n=104$):} The empirical evaluation is grounded on the $N=121$ benchmark repository from CHU de Qu\'{e}bec, partitioned into a $104$-patient development cohort and an independent $17$-patient locked test cohort. While this design guarantees leak-free validation and direct comparability with published benchmarks, the effective training sample size ($n=104$) limits the statistical capacity of unconstrained overparameterized deep models. Prospective multi-center trials across diverse patient demographics and scanner platforms will further evaluate cross-institutional generalizability.
+    \item \textbf{Sample Size of the Ceiling-Range Subgroup ($n=4$):} While our formal subgroup analysis verified that baseline visual acuity's predictive dominance persists when excluding ceiling-range eyes ($+2.16\%$ non-ceiling vs. $+2.00\%$ full cohort), only $3.3\%$ ($4/121$) of patients in this surgical cohort presented with baseline acuity $\ge 70$ ETDRS letters. Consequently, while the non-ceiling sensitivity analysis is mathematically sound, the specific ceiling subgroup is statistically small ($n=4$), and future validation on cohorts with higher preoperative visual acuities (e.g., earlier-stage presentations) is warranted.
     \item \textbf{Dual-Axis 2D B-Scans:} The imaging inputs utilize orthogonal horizontal and vertical foveal cross-hairs, which capture essential minimum diameter and traction vectors. Extending the framework to dense 3D volumetric rasters and automated outer retinal micro-layer segmentation (such as ellipsoid zone reconstitution) represents a natural progression as multi-slice annotated repositories become available.
 \end{enumerate}
 
